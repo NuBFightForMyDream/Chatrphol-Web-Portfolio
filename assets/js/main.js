@@ -104,6 +104,30 @@
     file: '<svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M12 12v6M9 15l3 3 3-3"/></svg>',
   };
 
+  // Logos for the social buttons — picked by name (e.g. "GitHub") or by the link's domain
+  const lineIcon = (paths) =>
+    `<svg class="social__logo" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${paths}</svg>`;
+  const SOCIAL_ICONS = [
+    { keys: ['github'], hosts: ['github.com'], svg: lineIcon('<path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>') },
+    { keys: ['instagram', 'ig'], hosts: ['instagram.com'], svg: lineIcon('<rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><path d="M17.5 6.5h.01"/>') },
+    { keys: ['linkedin'], hosts: ['linkedin.com'], svg: lineIcon('<path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/>') },
+    { keys: ['facebook', 'fb'], hosts: ['facebook.com', 'fb.com'], svg: lineIcon('<path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>') },
+    { keys: ['x', 'twitter'], hosts: ['x.com', 'twitter.com'], svg: lineIcon('<path d="M4 4l11.7 16H20L8.3 4H4zM4 20l6.8-7.2M20 4l-6.8 7.2"/>') },
+    { keys: ['youtube'], hosts: ['youtube.com', 'youtu.be'], svg: lineIcon('<path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z"/><path d="M9.75 15.02l5.75-3.27-5.75-3.27v6.54z"/>') },
+    { keys: ['tiktok'], hosts: ['tiktok.com'], svg: lineIcon('<path d="M14 3v11.5a3.5 3.5 0 1 1-3.5-3.5M14 3c.5 2.5 2.5 4.5 5 5"/>') },
+    { keys: ['dribbble'], hosts: ['dribbble.com'], svg: lineIcon('<circle cx="12" cy="12" r="10"/><path d="M8.56 2.75c4.37 6.03 6.02 9.42 8.03 17.72m2.54-15.38c-3.72 4.35-8.94 5.66-16.88 5.85m19.5 1.9c-3.5-.93-6.63-.82-8.94 0-2.58.92-5.01 2.86-7.44 6.32"/>') },
+  ];
+  const WEB_ICON = lineIcon('<circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>');
+  const MAIL_ICON = lineIcon('<rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/>');
+  function socialIcon(name, url) {
+    if (/^mailto:/i.test(url)) return MAIL_ICON;
+    const key = name.toLowerCase().replace(/[^a-z0-9]/g, '');
+    let host = '';
+    try { host = new URL(url, location.href).hostname.replace(/^www\./, ''); } catch (e) { /* not a full URL */ }
+    const hit = SOCIAL_ICONS.find((s) => s.keys.includes(key) || s.hosts.some((h) => host === h || host.endsWith(`.${h}`)));
+    return hit ? hit.svg : WEB_ICON;
+  }
+
   /* ------------------------------------------------------------------------
      Load content.yml
      ------------------------------------------------------------------------ */
@@ -209,7 +233,7 @@
       .filter((s) => s.name && s.url);
     if (!items.length) return '';
     return `<div class="socials ${cls}">${items
-      .map((s) => `<a class="social" href="${esc(s.url)}"${targetAttr(s.url)}>${esc(s.name)} ${ICON.out}</a>`)
+      .map((s) => `<a class="social" href="${esc(s.url)}"${targetAttr(s.url)}>${socialIcon(s.name, s.url)}${esc(s.name)} ${ICON.out}</a>`)
       .join('')}</div>`;
   }
 
@@ -256,7 +280,9 @@
       .join('');
     const roles = arr(p.roles).map(str).filter(Boolean);
     const photo = link(p.photo);
-    const chips = arr(obj(skills).items).map(str).filter(Boolean).slice(0, 4);
+    // Chips floating around the photo: skills.highlights (falls back to the first 4 skills)
+    const highlights = arr(obj(skills).highlights).map(str).filter(Boolean);
+    const chips = (highlights.length ? highlights : arr(obj(skills).items).map(str).filter(Boolean)).slice(0, 4);
     const greeting = str(p.greeting);
     const intro = str(p.intro);
     const contactLabel = L('contact_me', 'Get in touch');
@@ -318,11 +344,12 @@ ${roles.length ? renderTicker(roles) : ''}`;
     const email = str(profile.email);
     const statHTML = stats
       .map((s, i) => {
-        const raw = str(s.number);
+        const gh = str(s.github).toLowerCase();
+        const raw = str(s.number) || (gh ? '0' : '');
         const m = raw.match(/^([^\d-]*)(-?\d+(?:\.\d+)?)(.*)$/);
         const suffix = esc((m ? m[3] : '') + str(s.suffix));
         const inner = m
-          ? `${esc(m[1])}<span data-count="${m[2]}">0</span>${suffix}`
+          ? `${esc(m[1])}<span data-count="${m[2]}"${gh ? ` data-github="${esc(gh)}"` : ''}>0</span>${suffix}`
           : `${esc(raw)}${suffix}`;
         return `<div class="stat reveal" style="--d:${i}"><div class="stat__num">${inner}</div><div class="stat__label">${esc(s.label)}</div></div>`;
       })
@@ -383,8 +410,8 @@ ${roles.length ? renderTicker(roles) : ''}`;
       .filter((p) => p.title);
   }
 
-  function renderProjects(pr, num) {
-    const items = state.projects;
+  // Card grid used by both Projects and Activities. `offset` keeps data-open unique across sections.
+  function renderProjects(pr, num, id, items, offset) {
     if (!items.length) return '';
     const cats = [...new Set(items.map((p) => p.category).filter(Boolean))];
     const allLabel = L('all', 'All');
@@ -401,7 +428,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
       .map(
         (p, i) => `
       <article class="card reveal${p.featured ? ' card--wide' : ''}" style="--d:${i % 3}" data-cat="${esc(p.category)}">
-        <div class="card__inner" tabindex="0" role="button" data-open="${i}" data-cursor="${esc(L('open_project', 'View'))}" aria-label="${esc(p.title)}">
+        <div class="card__inner" tabindex="0" role="button" data-open="${offset + i}" data-cursor="${esc(L('open_project', 'View'))}" aria-label="${esc(p.title)}">
           <div class="card__media">
             ${mediaHTML(p)}
             ${p.featured ? `<span class="card__badge">${esc(L('featured', 'Featured'))}</span>` : ''}
@@ -418,11 +445,11 @@ ${roles.length ? renderTicker(roles) : ''}`;
       )
       .join('');
     return `
-<section class="section work" id="work">
+<section class="section work" id="${id}">
   <div class="container">
     ${sectionHead(num, pr.__label, str(pr.title), str(pr.subtitle))}
     ${filters}
-    <div class="grid" id="grid">${cards}</div>
+    <div class="grid">${cards}</div>
   </div>
 </section>`;
   }
@@ -433,7 +460,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
       .filter((x) => str(x.title) || str(x.period));
     if (!items.length) return '';
     return `
-<section class="section experience" id="experience">
+<section class="section experience" id="education">
   <div class="container">
     ${sectionHead(num, e.__label, str(e.title), str(e.subtitle))}
     <div class="timeline" id="timeline">
@@ -446,6 +473,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
             ${str(x.period) ? `<div class="tl__period">${esc(x.period)}</div>` : ''}
             ${str(x.title) ? `<h3 class="tl__title">${esc(x.title)}</h3>` : ''}
             ${str(x.place) ? `<div class="tl__place">${esc(x.place)}</div>` : ''}
+            ${str(x.gpax) ? `<div class="tl__gpax">${esc(L('gpax', 'GPAX'))} <strong>${esc(typeof x.gpax === 'number' ? x.gpax.toFixed(2) : str(x.gpax))}</strong></div>` : ''}
             ${str(x.detail) ? `<div class="tl__detail">${paragraphs(x.detail)}</div>` : ''}
           </div>
         </div>`
@@ -500,7 +528,8 @@ ${roles.length ? renderTicker(roles) : ''}`;
       </div>`;
   }
 
-  const state = { data: {}, projects: [], firstSection: '' };
+  // cards = every card from Projects / Activities / Experiences (indexed by data-open)
+  const state = { data: {}, cards: [], firstSection: '' };
 
   /** Small UI text (buttons, badges…) from the `labels:` section of content.yml */
   const L = (key, fallback) => str(obj(state.data.labels)[key]) || fallback;
@@ -518,19 +547,34 @@ ${roles.length ? renderTicker(roles) : ''}`;
     const about = obj(data.about);
     const skills = obj(data.skills);
     const projects = obj(data.projects);
-    const experience = obj(data.experience);
+    const activities = obj(data.activities);
+    const experiences = obj(data.experiences);
+    const education = obj(data.education);
     const contact = obj(data.contact);
-    state.projects = normalizeProjects(projects.items);
-    data.__hasWork = state.projects.length > 0;
+
+    // Card sections share state.cards so the modal can open any card by its index
+    state.cards = [];
+    const cardSection = (id, d) => {
+      const items = normalizeProjects(d.items);
+      const offset = state.cards.length;
+      state.cards.push(...items);
+      return (n) => renderProjects(d, n, id, items, offset);
+    };
+    const renderWork = cardSection('work', projects);
+    data.__hasWork = state.cards.length > 0;
+    const renderActivities = cardSection('activities', activities);
+    const renderExperiences = cardSection('experiences', experiences);
 
     applyTheme(data.theme, profile);
 
     // Section order + default menu names
     const defs = [
       { id: 'about', d: about, label: 'About', fn: (n) => renderAbout(about, n, profile) },
+      { id: 'education', d: education, label: 'Education', fn: (n) => renderExperience(education, n) },
       { id: 'skills', d: skills, label: 'Skills', fn: (n) => renderSkills(skills, n) },
-      { id: 'work', d: projects, label: 'Work', fn: (n) => renderProjects(projects, n) },
-      { id: 'experience', d: experience, label: 'Experience', fn: (n) => renderExperience(experience, n) },
+      { id: 'experiences', d: experiences, label: 'Experiences', fn: renderExperiences },
+      { id: 'work', d: projects, label: 'Projects', fn: renderWork },
+      { id: 'activities', d: activities, label: 'Activities', fn: renderActivities },
       { id: 'contact', d: contact, label: 'Contact', fn: (n) => renderContact(contact, n, profile) },
     ];
     let html = '';
@@ -643,20 +687,24 @@ ${roles.length ? renderTicker(roles) : ''}`;
 
   function initCounters() {
     const els = $$('[data-count]');
-    const run = (el) => {
-      const target = parseFloat(el.dataset.count);
+    // Target is read every frame, so a live GitHub number arriving mid-count is picked up
+    const show = (el, e) => {
       const decimals = (el.dataset.count.split('.')[1] || '').length;
+      el.textContent = (parseFloat(el.dataset.count) * e).toFixed(decimals);
+    };
+    const run = (el) => {
       if (REDUCED) {
-        el.textContent = target.toFixed(decimals);
+        show(el, 1);
+        el.dataset.counted = '1';
         return;
       }
       const dur = 1800;
       const t0 = performance.now();
       const step = (now) => {
         const t = clamp((now - t0) / dur, 0, 1);
-        const e = t === 1 ? 1 : 1 - Math.pow(2, -10 * t); // easeOutExpo
-        el.textContent = (target * e).toFixed(decimals);
+        show(el, t === 1 ? 1 : 1 - Math.pow(2, -10 * t)); // easeOutExpo
         if (t < 1) requestAnimationFrame(step);
+        else el.dataset.counted = '1';
       };
       requestAnimationFrame(step);
     };
@@ -672,6 +720,40 @@ ${roles.length ? renderTicker(roles) : ''}`;
       { threshold: 0.6 }
     );
     els.forEach((e) => io.observe(e));
+  }
+
+  /** Stats with  github: repos / contributions  get live numbers (the number in content.yml stays if this fails) */
+  async function initGithubStats() {
+    const els = $$('[data-github]');
+    if (!els.length) return;
+    const match = arr(state.data.socials)
+      .map((s) => str(obj(s).url).match(/github\.com\/([^/?#]+)/i))
+      .find(Boolean);
+    if (!match) return;
+    const user = encodeURIComponent(match[1]);
+    const getJSON = (url) => fetch(url).then((r) => (r.ok ? r.json() : Promise.reject(new Error(`HTTP ${r.status}`))));
+    const sources = {
+      repos: () => getJSON(`https://api.github.com/users/${user}`).then((d) => d.public_repos),
+      // Last 12 months — the same number shown on the GitHub profile page
+      contributions: () =>
+        getJSON(`https://github-contributions-api.jogruber.de/v4/${user}?y=last`).then((d) => Number(obj(d.total).lastYear)),
+    };
+    await Promise.all(
+      Object.keys(sources).map(async (kind) => {
+        const targets = els.filter((el) => el.dataset.github === kind);
+        if (!targets.length) return;
+        try {
+          const n = await sources[kind]();
+          if (!Number.isFinite(n)) return;
+          targets.forEach((el) => {
+            el.dataset.count = String(n);
+            if (el.dataset.counted) el.textContent = String(n);
+          });
+        } catch (e) {
+          /* offline or rate-limited → keep the number from content.yml */
+        }
+      })
+    );
   }
 
   /** Everything driven by scroll: progress bar, nav, hero, ticker, timeline */
@@ -797,6 +879,17 @@ ${roles.length ? renderTicker(roles) : ''}`;
     let rx = mx;
     let ry = my;
     let seen = false;
+    let tiltQueued = false;
+    const tiltEls = [$('.bg__layer'), $('.orb')].filter(Boolean);
+    const applyTilt = () => {
+      tiltQueued = false;
+      const px = ((mx / window.innerWidth) * 2 - 1).toFixed(3);
+      const py = ((my / window.innerHeight) * 2 - 1).toFixed(3);
+      tiltEls.forEach((el) => {
+        el.style.setProperty('--px', px);
+        el.style.setProperty('--py', py);
+      });
+    };
     cursor.classList.add('is-hidden');
 
     window.addEventListener(
@@ -810,8 +903,10 @@ ${roles.length ? renderTicker(roles) : ''}`;
           ry = my;
           cursor.classList.remove('is-hidden');
         }
-        root.style.setProperty('--px', ((mx / window.innerWidth) * 2 - 1).toFixed(3));
-        root.style.setProperty('--py', ((my / window.innerHeight) * 2 - 1).toFixed(3));
+        if (!tiltQueued) {
+          tiltQueued = true;
+          requestAnimationFrame(applyTilt);
+        }
       },
       { passive: true }
     );
@@ -838,7 +933,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
 
     // magnetic
     $$('.magnetic').forEach((el) => {
-      const strength = el.classList.contains('contact__email') ? 0.15 : 0.32;
+      const strength = el.classList.contains('contact__email') ? 0.08 : 0.16;
       el.addEventListener('pointermove', (e) => {
         const r = el.getBoundingClientRect();
         const x = (e.clientX - (r.left + r.width / 2)) * strength;
@@ -862,8 +957,8 @@ ${roles.length ? renderTicker(roles) : ''}`;
         card.classList.add('is-tilting');
         inner.style.setProperty('--mx', `${(px * 100).toFixed(1)}%`);
         inner.style.setProperty('--my', `${(py * 100).toFixed(1)}%`);
-        inner.style.setProperty('--ry', `${((px - 0.5) * 8).toFixed(2)}deg`);
-        inner.style.setProperty('--rx', `${((0.5 - py) * 8).toFixed(2)}deg`);
+        inner.style.setProperty('--ry', `${((px - 0.5) * 3).toFixed(2)}deg`);
+        inner.style.setProperty('--rx', `${((0.5 - py) * 3).toFixed(2)}deg`);
       });
       inner.addEventListener('pointerleave', () => {
         card.classList.remove('is-tilting');
@@ -892,7 +987,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
       canvas.width = w * dpr;
       canvas.height = h * dpr;
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const count = Math.min(110, Math.round((w * h) / 14000));
+      const count = Math.min(60, Math.round((w * h) / 22000));
       stars = Array.from({ length: count }, () => ({
         x: Math.random() * w,
         y: Math.random() * h,
@@ -969,10 +1064,15 @@ ${roles.length ? renderTicker(roles) : ''}`;
     setTimeout(() => { color = accent(); }, 100);
   }
 
-  /** Project filter buttons */
+  /** Filter buttons — each card section (Projects / Activities) filters only its own cards */
   function initFilters() {
-    const chips = $$('[data-filter]');
-    const cards = $$('#grid .card');
+    $$('.filters').forEach((group) => {
+      const section = group.closest('.section');
+      initFilterGroup($$('[data-filter]', group), $$('.grid .card', section));
+    });
+  }
+
+  function initFilterGroup(chips, cards) {
     if (!chips.length) return;
     chips.forEach((chip) =>
       chip.addEventListener('click', () => {
@@ -1007,7 +1107,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
     let lastFocus = null;
 
     const open = (i) => {
-      const p = state.projects[i];
+      const p = state.cards[i];
       if (!p) return;
       lastFocus = doc.activeElement;
       const yt = youtubeId(p.video);
@@ -1146,6 +1246,7 @@ ${roles.length ? renderTicker(roles) : ''}`;
 
     initReveal();
     initCounters();
+    initGithubStats();
     initScroll();
     initActiveNav();
     initMenu();

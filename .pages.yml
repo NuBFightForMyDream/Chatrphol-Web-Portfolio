@@ -58,6 +58,7 @@ content:
               - { name: number, label: ตัวเลข, type: number }
               - { name: suffix, label: ต่อท้าย (เช่น + หรือ %), type: string }
               - { name: label, label: คำอธิบาย, type: string }
+              - { name: github, label: ดึงจาก GitHub อัตโนมัติ (contributions / repos / เว้นว่าง), type: string }
 
       - name: skills
         label: ทักษะ
@@ -66,7 +67,8 @@ content:
           - { name: menu, label: ชื่อเมนู, type: string }
           - { name: title, label: หัวข้อ, type: string }
           - { name: subtitle, label: คำอธิบาย, type: string }
-          - { name: items, label: รายการทักษะ, type: string, list: true }
+          - { name: highlights, label: ทักษะเด่น (ลอยรอบรูปโปรไฟล์ สูงสุด 4), type: string, list: true }
+          - { name: items, label: เครื่องมือที่ใช้ (แถบวิ่ง), type: string, list: true }
 
       - name: projects
         label: ผลงาน
@@ -92,8 +94,56 @@ content:
               - { name: tags, label: แท็ก, type: string, list: true }
               - { name: featured, label: การ์ดใหญ่พิเศษ, type: boolean }
 
-      - name: experience
-        label: ประสบการณ์
+      - name: activities
+        label: กิจกรรม
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: subtitle, label: คำอธิบาย, type: string }
+          - name: items
+            label: รายการกิจกรรม
+            type: object
+            list: true
+            fields:
+              - { name: title, label: ชื่อกิจกรรม, type: string, required: true }
+              - { name: category, label: หมวด, type: string }
+              - { name: year, label: ปี, type: string }
+              - { name: description, label: คำอธิบายสั้น, type: text }
+              - { name: details, label: รายละเอียดเต็ม, type: text }
+              - { name: image, label: รูปปก, type: image }
+              - { name: gallery, label: รูปเพิ่มเติม, type: image, list: true }
+              - { name: video, label: ลิงก์ YouTube, type: string }
+              - { name: link, label: ลิงก์, type: string }
+              - { name: tags, label: แท็ก, type: string, list: true }
+              - { name: featured, label: การ์ดใหญ่พิเศษ, type: boolean }
+
+      - name: experiences
+        label: ประสบการณ์ทำงาน
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: subtitle, label: คำอธิบาย, type: string }
+          - name: items
+            label: รายการประสบการณ์
+            type: object
+            list: true
+            fields:
+              - { name: title, label: ตำแหน่ง / ชื่องาน, type: string, required: true }
+              - { name: category, label: หมวด, type: string }
+              - { name: year, label: ปี, type: string }
+              - { name: description, label: คำอธิบายสั้น, type: text }
+              - { name: details, label: รายละเอียดเต็ม, type: text }
+              - { name: image, label: รูปปก, type: image }
+              - { name: gallery, label: รูปเพิ่มเติม, type: image, list: true }
+              - { name: video, label: ลิงก์ YouTube, type: string }
+              - { name: link, label: ลิงก์, type: string }
+              - { name: tags, label: แท็ก, type: string, list: true }
+              - { name: featured, label: การ์ดใหญ่พิเศษ, type: boolean }
+
+      - name: education
+        label: การศึกษา
         type: object
         fields:
           - { name: menu, label: ชื่อเมนู, type: string }
@@ -106,6 +156,7 @@ content:
               - { name: period, label: ช่วงเวลา, type: string }
               - { name: title, label: ตำแหน่ง/สิ่งที่ทำ, type: string }
               - { name: place, label: ที่ไหน, type: string }
+              - { name: gpax, label: GPAX (เว้นว่าง = ไม่แสดง), type: string }
               - { name: detail, label: รายละเอียด, type: text }
 
       - name: contact
