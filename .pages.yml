@@ -1,0 +1,139 @@
+# ตั้งค่าสำหรับ Pages CMS (https://pagescms.org) — ทางเลือกเสริม ไม่ใช้ก็ได้
+# ใช้แก้ content.yml ผ่านหน้าฟอร์มแทนการพิมพ์ไฟล์เอง
+# หมายเหตุ: เมื่อบันทึกผ่าน Pages CMS คำอธิบาย (#) ใน content.yml อาจหายไป ไม่กระทบการแสดงผลของเว็บ
+
+media:
+  input: images
+  output: images
+
+content:
+  - name: portfolio
+    label: Portfolio
+    type: file
+    path: content.yml
+    fields:
+      - name: profile
+        label: ข้อมูลส่วนตัว
+        type: object
+        fields:
+          - { name: name, label: ชื่อ, type: string, required: true }
+          - { name: greeting, label: คำทักทาย (เหนือชื่อ), type: string }
+          - { name: role_prefix, label: คำนำหน้าตำแหน่ง, type: string }
+          - { name: roles, label: ตำแหน่ง/สิ่งที่ทำ (พิมพ์สลับกัน), type: string, list: true }
+          - { name: intro, label: แนะนำตัวสั้นๆ, type: text }
+          - { name: photo, label: รูปโปรไฟล์, type: image }
+          - { name: location, label: ที่อยู่/เมือง, type: string }
+          - { name: email, label: อีเมล, type: string }
+          - { name: resume, label: ลิงก์ Resume, type: string }
+          - { name: available, label: แสดงป้ายพร้อมรับงาน, type: boolean }
+          - { name: available_text, label: ข้อความบนป้าย, type: string }
+
+      - name: theme
+        label: สีของเว็บ
+        type: object
+        fields:
+          - { name: accent, label: "สีหลัก (เช่น #8b5cf6)", type: string }
+          - { name: accent2, label: "สีรอง (เช่น #22d3ee)", type: string }
+
+      - name: socials
+        label: โซเชียล
+        type: object
+        list: true
+        fields:
+          - { name: name, label: ชื่อ (เช่น Instagram), type: string }
+          - { name: url, label: ลิงก์, type: string }
+
+      - name: about
+        label: เกี่ยวกับฉัน
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: text, label: ข้อความ (เว้นบรรทัด = ย่อหน้าใหม่), type: text }
+          - name: stats
+            label: ตัวเลขเด่น
+            type: object
+            list: true
+            fields:
+              - { name: number, label: ตัวเลข, type: number }
+              - { name: suffix, label: ต่อท้าย (เช่น + หรือ %), type: string }
+              - { name: label, label: คำอธิบาย, type: string }
+
+      - name: skills
+        label: ทักษะ
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: subtitle, label: คำอธิบาย, type: string }
+          - { name: items, label: รายการทักษะ, type: string, list: true }
+
+      - name: projects
+        label: ผลงาน
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: subtitle, label: คำอธิบาย, type: string }
+          - name: items
+            label: รายการผลงาน
+            type: object
+            list: true
+            fields:
+              - { name: title, label: ชื่อผลงาน, type: string, required: true }
+              - { name: category, label: หมวด, type: string }
+              - { name: year, label: ปี, type: string }
+              - { name: description, label: คำอธิบายสั้น, type: text }
+              - { name: details, label: รายละเอียดเต็ม, type: text }
+              - { name: image, label: รูปปก, type: image }
+              - { name: gallery, label: รูปเพิ่มเติม, type: image, list: true }
+              - { name: video, label: ลิงก์ YouTube, type: string }
+              - { name: link, label: ลิงก์ผลงาน, type: string }
+              - { name: tags, label: แท็ก, type: string, list: true }
+              - { name: featured, label: การ์ดใหญ่พิเศษ, type: boolean }
+
+      - name: experience
+        label: ประสบการณ์
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - name: items
+            label: รายการ
+            type: object
+            list: true
+            fields:
+              - { name: period, label: ช่วงเวลา, type: string }
+              - { name: title, label: ตำแหน่ง/สิ่งที่ทำ, type: string }
+              - { name: place, label: ที่ไหน, type: string }
+              - { name: detail, label: รายละเอียด, type: text }
+
+      - name: contact
+        label: ติดต่อ
+        type: object
+        fields:
+          - { name: menu, label: ชื่อเมนู, type: string }
+          - { name: title, label: หัวข้อ, type: string }
+          - { name: text, label: ข้อความ, type: text }
+
+      - name: footer
+        label: ท้ายเว็บ
+        type: object
+        fields:
+          - { name: text, label: ข้อความ, type: string }
+
+      - name: labels
+        label: ข้อความบนปุ่มและป้าย
+        type: object
+        fields:
+          - { name: view_work, label: ปุ่มหลักหน้าแรก, type: string }
+          - { name: contact_me, label: ปุ่มรองหน้าแรก, type: string }
+          - { name: nav_button, label: ปุ่มมุมขวาบน, type: string }
+          - { name: all, label: ปุ่มกรองทั้งหมด, type: string }
+          - { name: featured, label: ป้ายการ์ด Featured, type: string }
+          - { name: open_project, label: คำในวงกลมตอนชี้การ์ด, type: string }
+          - { name: visit_project, label: ปุ่มดูผลงานจริง, type: string }
+          - { name: watch_video, label: ปุ่มดูวิดีโอ, type: string }
+          - { name: send_email, label: ปุ่มส่งอีเมล, type: string }
+          - { name: download_resume, label: ปุ่มดาวน์โหลด Resume, type: string }
+          - { name: back_to_top, label: ปุ่มกลับด้านบน, type: string }

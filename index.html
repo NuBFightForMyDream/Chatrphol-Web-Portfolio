@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Portfolio</title>
+  <meta name="description" content="Portfolio">
+  <meta name="theme-color" content="#07070b">
+  <link rel="icon" id="favicon" href="data:,">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body class="is-loading">
+  <!--
+    No need to edit this file 🙂
+    All of the site's content lives in content.yml
+  -->
+
+  <div class="preloader" id="preloader" aria-hidden="true">
+    <div class="preloader__inner">
+      <div class="preloader__name" id="preloader-name"></div>
+      <div class="preloader__bar"><span id="preloader-bar"></span></div>
+      <div class="preloader__count" id="preloader-count">0</div>
+    </div>
+  </div>
+
+  <div class="bg" aria-hidden="true">
+    <div class="bg__layer">
+      <div class="bg__blob bg__blob--1"></div>
+      <div class="bg__blob bg__blob--2"></div>
+      <div class="bg__blob bg__blob--3"></div>
+    </div>
+    <div class="bg__grid"></div>
+    <canvas class="bg__stars" id="stars"></canvas>
+    <div class="bg__grain"></div>
+  </div>
+
+  <div class="progress" id="progress" aria-hidden="true"></div>
+
+  <div class="cursor" id="cursor" aria-hidden="true">
+    <div class="cursor__ring"><span class="cursor__label" id="cursor-label"></span></div>
+    <div class="cursor__dot"></div>
+  </div>
+
+  <header class="nav" id="nav"></header>
+  <div class="menu" id="menu" aria-hidden="true"></div>
+
+  <main id="app"></main>
+
+  <footer class="footer" id="footer"></footer>
+
+  <div class="modal" id="modal" aria-hidden="true">
+    <div class="modal__backdrop" data-close></div>
+    <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title" tabindex="-1">
+      <button class="modal__close" type="button" data-close aria-label="Close">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+      </button>
+      <div class="modal__content" id="modal-content"></div>
+    </div>
+  </div>
+
+  <noscript>
+    <div class="load-error"><div class="load-error__card"><h1>Please enable JavaScript</h1><p>This site needs JavaScript to display its content.</p></div></div>
+  </noscript>
+
+  <script src="assets/vendor/js-yaml.min.js"></script>
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

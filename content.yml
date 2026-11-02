@@ -1,0 +1,240 @@
+# ═══════════════════════════════════════════════════════════════════
+#  📝 content.yml — ทุกข้อความบนเว็บอยู่ในไฟล์นี้ไฟล์เดียว
+#
+#  แก้ข้อความในไฟล์นี้ → กด Commit → รอ ~1 นาที → รีเฟรชเว็บ
+#  ไม่ต้องแตะไฟล์อื่นเลย (index.html / assets/ เป็นโค้ด ไม่ต้องแก้)
+#
+#  กฎง่ายๆ 5 ข้อ
+#   1) บรรทัด/ข้อความหลัง  #  คือคำอธิบาย เว็บจะไม่แสดง
+#   2) อย่าลบชื่อหัวข้อและเครื่องหมาย :  (เช่น  name: )  แก้แค่ข้อความหลัง :
+#   3) การเว้นวรรคหน้าบรรทัดมีความหมาย → ใช้ "Spacebar" เท่านั้น ห้ามใช้ Tab
+#   4) อยากเพิ่มรายการ (ผลงาน / ประสบการณ์ / ทักษะ) → copy ทั้งก้อนที่ขึ้นต้นด้วย  -
+#      แล้ววางต่อท้าย ให้ย่อหน้าตรงกับก้อนเดิม
+#   5) ถ้าข้อความมี  :  หรือ  #  อยู่ข้างใน ให้ครอบด้วย "เครื่องหมายคำพูด"
+#
+#  ช่องไหนไม่อยากแสดง → ใส่ ""  ส่วนนั้นจะถูกซ่อนให้อัตโนมัติ
+#  รูปภาพ → อัปโหลดไว้ในโฟลเดอร์ images/ แล้วใส่ชื่อ เช่น  images/me.jpg
+# ═══════════════════════════════════════════════════════════════════
+
+
+# ─────────────────────────────────────────────
+# 👤 ข้อมูลส่วนตัว — แก้ตรงนี้ที่เดียว ใช้ทั้งเว็บ
+#    (ข้อความหลัง # บอกว่าช่องนั้นไปโผล่ตรงไหนบนเว็บ)
+# ─────────────────────────────────────────────
+profile:
+  name: Chatrphol                     # ชื่อตัวใหญ่หน้าแรก + โลโก้มุมซ้ายบน + ชื่อแท็บเบราว์เซอร์
+  greeting: Hi there 👋 I'm           # บรรทัดเล็กเหนือชื่อ
+  role_prefix: "I'm a"                # คำหน้าตำแหน่งที่พิมพ์สลับ เช่น  I'm a [Creative Designer]
+  roles:                              # ตำแหน่ง/สิ่งที่ทำ → พิมพ์สลับกัน + แถบตัวอักษรใหญ่ (ใส่กี่อันก็ได้)
+    - Creative Designer
+    - Content Creator
+    - Problem Solver
+  intro: I turn ideas into things people can see and use — from visual design and video to websites. I believe good work should look great and actually work.   # ย่อหน้าแนะนำตัวหน้าแรก
+  photo: ""                           # รูปโปรไฟล์ในวงกลม เช่น images/me.jpg (เว้นว่าง = ใช้ตัวอักษรแรกของชื่อ)
+  location: Bangkok, Thailand         # โชว์ในส่วน About
+  email: hello@example.com            # ปุ่มส่งอีเมล + ส่วน Contact + About (เว้นว่าง = ซ่อนปุ่มอีเมล)
+  resume: ""                          # ลิงก์ Resume/CV เช่น images/resume.pdf (เว้นว่าง = ไม่มีปุ่มดาวน์โหลด)
+  available: true                     # true = โชว์ป้ายสีเขียว  /  false = ซ่อนป้าย
+  available_text: Available for new projects   # ข้อความบนป้ายสีเขียว
+
+
+# ─────────────────────────────────────────────
+# 🎨 สีของเว็บ (รหัสสี เลือกได้ที่ https://htmlcolorcodes.com)
+# ─────────────────────────────────────────────
+theme:
+  accent: "#8b5cf6"                   # สีหลัก
+  accent2: "#22d3ee"                  # สีรอง (ไล่สีคู่กับสีหลัก)
+
+
+# ─────────────────────────────────────────────
+# 🔗 โซเชียล (โชว์หน้าแรก + ส่วน Contact / ช่องไหน url ว่างจะไม่แสดง)
+# ─────────────────────────────────────────────
+socials:
+  - name: GitHub
+    url: https://github.com/NuBFightForMyDream
+  - name: Instagram
+    url: ""
+  - name: LinkedIn
+    url: ""
+  - name: Facebook
+    url: ""
+
+
+# ─────────────────────────────────────────────
+# 🙋 About — เกี่ยวกับฉัน
+# ─────────────────────────────────────────────
+about:
+  menu: About                         # ชื่อในเมนูด้านบน
+  title: A little bit about me
+  # ข้อความยาว: เว้น 1 บรรทัด = ขึ้นย่อหน้าใหม่ (ทุกบรรทัดต้องย่อหน้าเข้าไป 4 ช่องเหมือนตัวอย่าง)
+  text: |
+    I love making things. I usually start by understanding the problem, then work my way toward a solution that is both beautiful and practical.
+
+    Outside of work I enjoy photography, music and trying out new tools. I'm currently looking for opportunities to work with teams who want to build something meaningful.
+  # ตัวเลขเด่นๆ (วิ่งนับขึ้นตอนเลื่อนมาถึง)
+  stats:
+    - number: 3
+      suffix: "+"
+      label: Years of creative work
+    - number: 24
+      suffix: "+"
+      label: Projects completed
+    - number: 15
+      suffix: ""
+      label: Happy clients
+    - number: 100
+      suffix: "%"
+      label: Care in every project
+
+
+# ─────────────────────────────────────────────
+# 🛠️ Skills — ทักษะ / เครื่องมือ (เป็นแถบวิ่ง + 4 อันแรกลอยรอบรูปโปรไฟล์)
+# ─────────────────────────────────────────────
+skills:
+  menu: Skills
+  title: Tools I use every day
+  subtitle: The tools I rely on — and I'm always learning more.
+  items:
+    - Figma
+    - Photoshop
+    - Illustrator
+    - Premiere Pro
+    - After Effects
+    - Canva
+    - Notion
+    - Lightroom
+    - HTML & CSS
+    - Branding
+
+
+# ─────────────────────────────────────────────
+# 💼 Work — ผลงาน
+#   title       ชื่อผลงาน (ต้องมี)
+#   category    หมวด → ใช้ทำปุ่มกรอง
+#   year        ปี
+#   description คำอธิบายสั้นบนการ์ด
+#   details     คำอธิบายยาว ตอนกดเปิดดู (ไม่ใส่ก็ได้)
+#   image       รูปปก (ไม่ใส่ เว็บจะสร้างปกสีให้เอง)
+#   gallery     รูปเพิ่มเติมตอนกดเปิดดู (ใส่กี่รูปก็ได้)
+#   video       ลิงก์ YouTube (ไม่ใส่ก็ได้)
+#   link        ลิงก์ไปดูผลงานจริง
+#   tags        คำกำกับ
+#   featured    true = การ์ดใหญ่พิเศษ
+# ─────────────────────────────────────────────
+projects:
+  menu: Work
+  title: Selected work
+  subtitle: Click a card to see the details.
+  items:
+    - title: Brand Identity — Slow Bar Café
+      category: Branding
+      year: 2025
+      description: A complete brand identity for a small coffee shop — logo, packaging and menu.
+      details: |
+        The brief was a shop that feels warm and simple, yet instantly recognizable.
+
+        I started by interviewing the owner and regular customers, then developed the logo, color palette, typography, packaging patterns and storefront signage. After the rebrand launched, customers started sharing noticeably more photos of the shop on social media.
+      image: ""
+      gallery: []
+      video: ""
+      link: ""
+      tags: [Logo, Packaging, Illustrator]
+      featured: true
+
+    - title: Barber Booking App
+      category: UI/UX
+      year: 2025
+      description: A mobile app that lets customers book a haircut in three taps — no more waiting in line.
+      image: ""
+      link: ""
+      tags: [Mobile App, Prototype, Figma]
+
+    - title: Short Film — The Old House
+      category: Video
+      year: 2024
+      description: A short film about family memories, shot and edited entirely by me.
+      image: ""
+      video: ""
+      link: ""
+      tags: [Storytelling, Premiere Pro]
+
+    - title: Bloom Flower Shop Website
+      category: Web
+      year: 2024
+      description: A website for a local florist, with bouquet ordering through LINE.
+      image: ""
+      link: ""
+      tags: [Website, Responsive]
+
+    - title: Campaign — Run for Good
+      category: Branding
+      year: 2024
+      description: Promotional visuals for a charity run — posters, shirts and social media posts.
+      image: ""
+      link: ""
+      tags: [Poster, Social Media]
+
+    - title: Photo Series — Bangkok After Rain
+      category: Photography
+      year: 2023
+      description: Bangkok after the rain, with city lights reflected on the streets at night.
+      image: ""
+      link: ""
+      tags: [Street, Lightroom]
+
+
+# ─────────────────────────────────────────────
+# 🧭 Experience — ประสบการณ์ / การศึกษา (เรียงจากล่าสุดไปเก่าสุด)
+# ─────────────────────────────────────────────
+education:
+  menu: Education
+  title: What have I learned since I was born
+  items:
+    - period: January 2026 - Present
+      title: Junior Computer Engineering Student 💻
+      place: Chulalongkorn University
+      detail: Branding, graphics and video for small businesses — from the first brief to final delivery.
+
+    - period: August 2024 - December 2025
+      title: Electrical Engineering Student ⚡️
+      place: Chulalongkorn University
+      detail: Designed social media and print materials for more than 10 client brands.
+
+    - period: 2021 - 2024
+      title: Arts-Mathematics Student 
+      gpax : 3.30
+      place: Traim Udom Suksa School
+      detail: My senior project was selected for the faculty's annual exhibition.
+
+
+# ─────────────────────────────────────────────
+# ✉️ Contact — ส่วนท้ายของเว็บ
+# ─────────────────────────────────────────────
+contact:
+  menu: Contact
+  title: Have a project in mind? Let's talk.
+  text: Open to freelance work, full-time roles, or just a chat about ideas. I usually reply within 1–2 days.
+
+
+# ─────────────────────────────────────────────
+# 🔚 Footer — ท้ายเว็บ
+# ─────────────────────────────────────────────
+footer:
+  text: Designed with care ✦ Thanks for stopping by
+
+
+# ─────────────────────────────────────────────
+# 🏷️ ข้อความเล็กๆ บนปุ่มและป้ายต่างๆ (อยากเปลี่ยนคำไหน แก้ตรงนี้)
+# ─────────────────────────────────────────────
+labels:
+  view_work: View my work             # ปุ่มหลักหน้าแรก
+  contact_me: Get in touch            # ปุ่มรองหน้าแรก
+  nav_button: Let's talk              # ปุ่มมุมขวาบน
+  all: All                            # ปุ่มกรอง "ทั้งหมด" ในส่วน Work
+  featured: Featured                  # ป้ายบนการ์ดที่ featured: true
+  open_project: View                  # คำในวงกลมตอนเอาเมาส์ชี้การ์ด
+  visit_project: View live project    # ปุ่มในหน้ารายละเอียดผลงาน (เมื่อมี link)
+  watch_video: Watch video            # ปุ่มดูวิดีโอ (เมื่อ video ไม่ใช่ YouTube)
+  send_email: Send me an email        # ปุ่มในส่วน Contact
+  download_resume: Download resume    # ปุ่มดาวน์โหลด Resume (เมื่อมี resume)
+  back_to_top: Back to top            # ปุ่มท้ายเว็บ
