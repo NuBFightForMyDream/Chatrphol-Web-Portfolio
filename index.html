@@ -3,14 +3,15 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <title>Portfolio</title>
-  <meta name="description" content="Portfolio">
-  <meta name="theme-color" content="#07070b">
+  <title>Chatrphol's Web Portfolio</title>
+  <meta name="description" content="Chatrphol's Web Portfolio">
+  <meta name="theme-color" content="#0d0c0e">
   <link rel="icon" id="favicon" href="data:,">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800&family=IBM+Plex+Sans+Thai:wght@300;400;500;600;700&display=swap">
+  <link rel="stylesheet" href="assets/vendor/scrollcraft.css">
   <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body class="is-loading">
@@ -19,38 +20,14 @@
     All of the site's content lives in content.yml
   -->
 
-  <div class="preloader" id="preloader" aria-hidden="true">
-    <div class="preloader__inner">
-      <div class="preloader__name" id="preloader-name"></div>
-      <div class="preloader__bar"><span id="preloader-bar"></span></div>
-      <div class="preloader__count" id="preloader-count">0</div>
-    </div>
-  </div>
-
-  <div class="bg" aria-hidden="true">
-    <div class="bg__layer">
-      <div class="bg__blob bg__blob--1"></div>
-      <div class="bg__blob bg__blob--2"></div>
-      <div class="bg__blob bg__blob--3"></div>
-    </div>
-    <div class="bg__grid"></div>
-    <canvas class="bg__stars" id="stars"></canvas>
-    <div class="bg__grain"></div>
-  </div>
-
-  <div class="progress" id="progress" aria-hidden="true"></div>
-
-  <div class="cursor" id="cursor" aria-hidden="true">
-    <div class="cursor__ring"><span class="cursor__label" id="cursor-label"></span></div>
-    <div class="cursor__dot"></div>
-  </div>
-
-  <header class="nav" id="nav"></header>
-  <div class="menu" id="menu" aria-hidden="true"></div>
+  <!-- Stage lighting: one wash per scene, crossfaded when the prompt desk calls GO -->
+  <div class="lx" id="lx" aria-hidden="true"></div>
+  <canvas class="stars" id="stars" aria-hidden="true"></canvas>
+  <div class="sc-grain" aria-hidden="true"></div>
 
   <main id="app"></main>
 
-  <footer class="footer" id="footer"></footer>
+  <aside class="desk" id="desk" aria-label="Main menu"></aside>
 
   <div class="modal" id="modal" aria-hidden="true">
     <div class="modal__backdrop" data-close></div>
@@ -67,6 +44,7 @@
   </noscript>
 
   <script src="assets/vendor/js-yaml.min.js"></script>
+  <script src="assets/vendor/scrollcraft.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>

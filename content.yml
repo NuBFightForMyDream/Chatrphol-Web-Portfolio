@@ -19,34 +19,38 @@
 
 # ─────────────────────────────────────────────
 # 👤 ข้อมูลส่วนตัว — แก้ตรงนี้ที่เดียว ใช้ทั้งเว็บ
+#    บนเว็บ: ฉากที่ 1 หน้าแรก (ม่านเวที → เปิดม่านเจอสปอตไลต์) + ท้ายเว็บ
 #    (ข้อความหลัง # บอกว่าช่องนั้นไปโผล่ตรงไหนบนเว็บ)
 # ─────────────────────────────────────────────
 profile:
-  name: Chatrphol (Nine)                   # ชื่อตัวใหญ่หน้าแรก + โลโก้มุมซ้ายบน + ชื่อแท็บเบราว์เซอร์
-  greeting: Hi , I'm           # บรรทัดเล็กเหนือชื่อ
+  name: Chatrphol (Nine)                   # ชื่อตัวใหญ่หน้าแรก + ท้ายเว็บ + กระดานสเลท
+  site_title: "Chatrphol's Web Portfolio"  # ชื่อบนแท็บเบราว์เซอร์ (เว้นว่าง = ใช้ชื่อ + ตำแหน่งแรก)
+  greeting: Hi, I'm           # บรรทัดเล็กเหนือชื่อ
   role_prefix: "Being"                # คำหน้าตำแหน่งที่พิมพ์สลับ เช่น  I'm a [Creative Designer]
-  roles:                              # ตำแหน่ง/สิ่งที่ทำ → พิมพ์สลับกัน + แถบตัวอักษรใหญ่ (ใส่กี่อันก็ได้)
-    - Computer Engineering Student
-    - Tech Enthusiast
-    - Problem Solver
-  intro: Currently cooking Junior Computer Engineering students at Chulalongkorn University. Looking for Internship.  # ย่อหน้าแนะนำตัวหน้าแรก
-  photo: "images/profile_pic.jpg"                           # รูปโปรไฟล์ในวงกลม เช่น images/me.jpg (เว้นว่าง = ใช้ตัวอักษรแรกของชื่อ)
+  roles:                              # ตำแหน่ง/สิ่งที่ทำ → พิมพ์สลับกันหน้าแรก + รายการในส่วน About (ใส่กี่อันก็ได้)
+    - Computer Engineering Student 💻
+    - Electrical Engineering Student ⚡️
+    - Tech Enthusiast 🧑🏼‍💻
+    - Problem Solver 🧠
+    - Stage Crew 🎭
+  intro: Currently a Junior Computer Engineering student at Chulalongkorn University. Transferred major from Electrical Engineering. Looking for Internship.  # ย่อหน้าแนะนำตัวหน้าแรก (ขึ้นหลังม่านเปิด)
+  photo: "images/profile_pic.jpg"                           # รูปในวงสปอตไลต์หน้าแรก + รูปขาวดำในส่วน About (เว้นว่าง = ใช้ตัวอักษรแรกของชื่อ)
   location: Bangkok, Thailand         # โชว์ในส่วน About
-  email: chatrphol.nine@gmail.com           # ปุ่มส่งอีเมล + ส่วน Contact + About (เว้นว่าง = ซ่อนปุ่มอีเมล)
+  email: chatrphol.nine@gmail.com           # ท้ายเว็บ + ส่วน About (เว้นว่าง = ซ่อนปุ่มอีเมล)
   resume: ""                          # ลิงก์ Resume/CV เช่น images/resume.pdf (เว้นว่าง = ไม่มีปุ่มดาวน์โหลด)
-  available: true                     # true = โชว์ป้ายสีเขียว  /  false = ซ่อนป้าย
-  available_text: Curretly learning new skills   # ข้อความบนป้ายสีเขียว
+  available: true                     # true = โชว์ป้ายไฟเขียวหน้าแรก  /  false = ซ่อนป้าย
+  available_text: Currently learning new skills   # ข้อความบนป้ายไฟเขียว
 
 
 # ─────────────────────────────────────────────
-# 🎨 สีของเว็บ (รหัสสี เลือกได้ที่ https://htmlcolorcodes.com)
+# 🎨 สีของเว็บ = สีฟิลเตอร์ไฟเวที 2 สี (รหัสสี เลือกได้ที่ https://htmlcolorcodes.com)
 # ─────────────────────────────────────────────
 theme:
-  accent: "#bc97dd"                   # สีหลัก
-  accent2: "#f5ae72"                  # สีรอง (ไล่สีคู่กับสีหลัก)
+  accent: "#bc97dd"                   # สีหลัก → ปุ่ม, เมนู, ตัวเลข, ไฮไลต์
+  accent2: "#f5ae72"                  # สีแสงไฟ → สปอตไลต์, ไฟในโรง, ดาว (ใช้เป็นแสงเท่านั้น)
 
 # ─────────────────────────────────────────────
-# 🔗 โซเชียล (โชว์หน้าแรก + ส่วน Contact / ช่องไหน url ว่างจะไม่แสดง)
+# 🔗 โซเชียล (โชว์หน้าแรกหลังม่านเปิด + ท้ายเว็บ / ช่องไหน url ว่างจะไม่แสดง)
 # ─────────────────────────────────────────────
 socials:
   - name: GitHub
@@ -55,23 +59,24 @@ socials:
     url: "https://instagram.com/noobie.c"
   - name: LinkedIn
     url: "https://www.linkedin.com/in/chatrphol-ovanonchai/"
-  - name: Discord
-    url: ""
+  - name: LINE
+    url: "https://line.me/ti/p/29ihsBL0gK"
 
 
 # ─────────────────────────────────────────────
 # 🙋 About — เกี่ยวกับฉัน
+#    บนเว็บ: ฉากที่ 2 · แบบสูจิบัตรละคร (ข้อความ + รูปขาวดำ + roles) และตัวเลขเด่นด้านล่าง
 # ─────────────────────────────────────────────
 about:
-  menu: About                         # ชื่อในเมนูด้านบน
-  title: Know myself a little bit more
+  menu: About                         # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
+  title: Get to know me a little more
   # ข้อความยาว: เว้น 1 บรรทัด = ขึ้นย่อหน้าใหม่ (ทุกบรรทัดต้องย่อหน้าเข้าไป 4 ช่องเหมือนตัวอย่าง)
   text: |
-    You can call me "Nine (นายน์)" as well , I'm passionate in learning new skills. My life is always being in hard mode and that's why I have to fight for my dream.
+    You can call me "Nine (นายน์)" as well, I'm passionate about learning new skills. My life is always being in hard mode and that's why I have to fight for my dream.
 
-    I'm interested in Tech Consultant roles which need tech skills to apply on real-world problems. My intrested topics are Data Science & Machine Learning , AI and Quantum Computing.
+    I'm interested in Tech Consultant roles which need tech skills to apply on real-world problems. The topics I'm interested in are Data Science & Machine Learning, AI and Quantum Computing.
     
-    My outside-tech interests are Drama Arts , Food Sciences and Cooking Reality Show. 
+    My outside-tech interests are Drama Arts 🎭, Food Sciences 🍛 and Cooking Reality Show 📽️.
 
 
   # ตัวเลขเด่นๆ (วิ่งนับขึ้นตอนเลื่อนมาถึง)
@@ -80,14 +85,13 @@ about:
   #   (ใช้บัญชี GitHub จากลิงก์ในส่วน socials / number คือตัวเลขสำรองถ้าดึงไม่สำเร็จ)
   stats:
     - number: 398
-      suffix: "+"
       label: GitHub contributions in the last year
       github: contributions
     - number: 41
       suffix: ""
       label: Repositories on GitHub
       github: repos
-    - number: 12                      
+    - number: 15                      
       suffix: "+"
       label: Activities joined
 
@@ -97,13 +101,15 @@ about:
 
 # ─────────────────────────────────────────────
 # 🛠️ Skills / Tools
-#   highlights  ทักษะเด่น → ป้ายที่ลอยรอบรูปโปรไฟล์หน้าแรก (สูงสุด 4 อัน)
-#   items       เครื่องมือที่ใช้ → แถบวิ่งในส่วนนี้ (ใส่กี่อันก็ได้)
+#    บนเว็บ: ฉากที่ 4 · กระดานสเลท ทุกครั้งที่เลื่อนจะตัดเป็น take ใหม่ทีละเครื่องมือ
+#   highlights  ทักษะเด่น → ป้ายเทปบนพื้นเวทีรอบรูปหน้าแรก (สูงสุด 4 อัน)
+#   items       เครื่องมือที่ใช้ → take บนกระดานสเลท + รายการพร้อมโลโก้ (ใส่กี่อันก็ได้ / ชื่อซ้ำจะโชว์ครั้งเดียว)
+#               โลโก้: ใส่ไฟล์ assets/icons/skills/<ชื่อ>.svg เช่น Docker → docker.svg, C++ → cplusplus.svg
 # ─────────────────────────────────────────────
 skills:
-  menu: Tools & Programming Languages
-  title: I've learned
-  subtitle: Learning by doing , not just copying.
+  menu: Skills & Tools # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
+  title: Tools I work with
+  subtitle: Learning by doing, not just copying.
   highlights:
     - Data Science
     - Machine Learning
@@ -114,6 +120,7 @@ skills:
     - GitHub
     - Claude
     - Docker
+    - Figma
 
     - SQL
     - HTML/CSS/JavaScript
@@ -127,218 +134,308 @@ skills:
 
 # ─────────────────────────────────────────────
 # 💼 Projects — ผลงาน
-#   (ส่วน Activities ด้านล่างใช้ช่องเหมือนกันทุกอย่าง)
+#    บนเว็บ: ฉากที่ 6 · หน้าจอค้างไว้แล้วผลงานเลื่อนผ่านในแนวนอน กดการ์ดเพื่อดูรายละเอียด
+#   (Activities และ Experiences ใช้ช่องเหมือนกันทุกอย่าง)
 #   title       ชื่อผลงาน (ต้องมี)
 #   category    หมวด → ใช้ทำปุ่มกรอง
+#   type        ประเภท เช่น Coursework Project / Personal Project → ป้ายใต้ชื่อ
 #   year        ปี
-#   description คำอธิบายสั้นบนการ์ด
+#   description คำอธิบายสั้น
 #   details     คำอธิบายยาว ตอนกดเปิดดู (ไม่ใส่ก็ได้)
-#   image       รูปปก (ไม่ใส่ เว็บจะสร้างปกสีให้เอง)
+#   image       รูปปก (ไม่ใส่ เว็บจะทำปกตัวอักษรแบบใบปิดละครให้เอง)
 #   gallery     รูปเพิ่มเติมตอนกดเปิดดู (ใส่กี่รูปก็ได้)
 #   video       ลิงก์ YouTube (ไม่ใส่ก็ได้)
 #   link        ลิงก์ไปดูผลงานจริง
 #   tags        คำกำกับ
-#   featured    true = การ์ดใหญ่พิเศษ
+#   featured    true = การ์ดกว้างพิเศษ + ป้าย Featured
 # ─────────────────────────────────────────────
 projects:
-  menu: Projects
-  title: Projects Contributed
-  subtitle: There are xx projects contributed since I studied Chulalongkorn University (Including Coursework Projects & Personal Projects)
+  menu: Projects                      # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
+  title: Projects I've worked on
+  subtitle: There are 4 projects contributed since I studied Chulalongkorn University (Including Coursework Projects & Personal Projects)
   items:
     - title: Predicting Water Turbidity with TSS
       category: Machine Learning
+      type: Coursework Project
       year: Oct - Nov 2026
-      description: 2107541 Machine Learning for Environmental Applications Project
-      details: |
-        
-
-        I started by interviewing the owner and regular customers, then developed the logo, color palette, typography, packaging patterns and storefront signage. After the rebrand launched, customers started sharing noticeably more photos of the shop on social media.
+      description: In progress
       image: ""
       gallery: []
       video: ""
       link: "https://github.com/NuBFightForMyDream/2107541_MLEnvi_Project_PredictingWaterTurbidityWithTSS"
-      tags: [Coursework Projects , Machine Learning]
+      tags: [Junior , Python , Machine Learning , Scikit-Learn]
       featured: false
 
-    - title: PotionMixie 
-      category: OOP
-      year: 2025
-      description: 2110215 Programming Methodology Project
-      details: |
-        The brief was a shop that feels warm and simple, yet instantly recognizable.
+    - title: Optimizing Cooling System for Data Center with AI Agents
+      category: Agentic AI
+      type: Coursework Project
+      year: Sept - Dec 2026
+      description: In progress
+      image: ""
+      link: "https://github.com/NuBFightForMyDream/2110582_AI_and_Its_Applications_CEDT"
+      tags: [Junior , Python , AI Agents , Machine Learning]
+      featured: false
 
-        I started by interviewing the owner and regular customers, then developed the logo, color palette, typography, packaging patterns and storefront signage. After the rebrand launched, customers started sharing noticeably more photos of the shop on social media.
+    - title: PotionMixie
+      category: Object Oriented Programming
+      type: Coursework Project
+      year: May 2026
+      description: 2D Interactive Game with concept of Java Object-Oriented Programming and JavaFX GUI.
       image: "images/projects/2110215_progmeth.png"
-      link: ""
-      tags: [Mobile App, Prototype, Figma]
+      link: "https://github.com/NuBFightForMyDream/2110215_ProgMeth_FinalProject_PotionMixie"
+      tags: [Sophomore , Java , GUI]
 
-    - title: Short Film — The Old House
-      category: Video
-      year: 2024
-      description: A short film about family memories, shot and edited entirely by me.
-      image: ""
-      video: ""
-      link: ""
-      tags: [Storytelling, Premiere Pro]
+    - title: Intania Department Selection 2025
+      category: Python
+      type : Personal Project
+      year: Mar 2025
+      description: Streamlit Web Application program (made with pure Python) to predict probability of getting expected department. 1,500++ Views on this website.
+      image: "images/projects/intania_dept_selection_2025.png"
+      link: "https://github.com/NuBFightForMyDream/Intania_Department_Calculator_2025"
+      tags: [Freshmen , Python , Pandas , Streamlit]
 
-    - title: Bloom Flower Shop Website
-      category: Web
-      year: 2024
-      description: A website for a local florist, with bouquet ordering through LINE.
-      image: ""
-      link: ""
-      tags: [Website, Responsive]
 
-    - title: Campaign — Run for Good
-      category: Branding
-      year: 2024
-      description: Promotional visuals for a charity run — posters, shirts and social media posts.
+    - title: Self Project 1 (Deep Learning)
+      category: [Machine Learning]
+      type : Personal Project
+      year: Dec 2026 - Jan 2027
+      description: In progress
       image: ""
       link: ""
-      tags: [Poster, Social Media]
+      tags: [Junior , Python , Scikit-Learn , PyTorch]
 
-    - title: Photo Series — Bangkok After Rain
-      category: Photography
-      year: 2023
-      description: Bangkok after the rain, with city lights reflected on the streets at night.
+    - title: Self Project 2 (RAG/LLM)
+      category: [AI]
+      type : Personal Project
+      year: Dec 2026 - Feb 2027
+      description: In progress
       image: ""
       link: ""
-      tags: [Street, Lightroom]
-
+      tags: [Junior , Python , LangChain , PostgreSQL]
+  
 
 # ─────────────────────────────────────────────
-# 🏕️ Activities — กิจกรรม (การ์ดแบบเดียวกับ Projects / กดดูรายละเอียดได้)
-#   ใส่ช่องได้เหมือน Projects ทุกอย่าง (category ใช้ทำปุ่มกรอง)
-#   ⚠️ 2 รายการด้านล่างเป็นตัวอย่าง → แก้เป็นกิจกรรมจริง
+# 🏕️ Activities — กิจกรรม
+#    บนเว็บ: ฉากที่ 7 · รายการเครดิตแบบละคร ไฟสปอตส่องทีละรายการ + รูปในกรอบด้านซ้าย กดดูรายละเอียดได้
+#   ใส่ช่องได้เหมือน Projects ทุกอย่าง + เพิ่ม
+#   category    เลือก 1 อัน: Volunteering / Competitions / Extracurricular → ใช้ทำปุ่มกรอง
+#   team        ฝ่ายที่อยู่ → โชว์เป็นป้ายใต้ชื่อ (หลายฝ่ายใส่แบบ  team: [Academic Affairs, Registration Affairs])
 # ─────────────────────────────────────────────
 activities:
-  menu: Activities
+  menu: Activities                    # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
   title: Activities I've joined
-  subtitle: Click a card to see the details.
+  subtitle: Click any item to see the details.
+  categories: [Volunteering, Competitions, Extracurricular]   # ปุ่มกรองที่โชว์เสมอ (หมวดที่ยังไม่มีกิจกรรมจะเป็นสีจาง)
   items:
-    - title: Intania Open House 2025 
+
+    ## ------------------- Volunteering -------------------
+    - title: Triam Udom Public Relations Organization
       category: Volunteering
+      team: [Technical Production Coordinator]
+      year: October 2022
+      description: Managed technical equipment and ran the technical production for the Teacher Farewell 2023 event.
+      image: "images/activities/tupro.jpg"
+      tags: [High-School , Camera & Production]
+
+    - title: Nitadesilp 2023 Stage Play (Patsak the Musical)
+      category: Volunteering
+      team: [Stage Crew , Backstage Production]
+      year: May 2023
+      description: Managed props backstage and coordinated scene changes with the front-stage team.
+      image: "images/activities/stageplay_nitadesilp_tu.png"
+      link: "https://www.youtube.com/watch?v=qdb4hUdtWOs"
+      tags: [High-School , Stage Play , Production]
+
+    - title: Intania Open House 2025 Expo
+      category: Volunteering
+      team: Registration Affairs
       year: Mar 2025
-      description: Cleaning students data with Google Sheets & Giving informations about choosing Departments          
+      description: Cleaned student registration data in Google Sheets and advised visitors on choosing an engineering department.
       image: "images/activities/intania_expo.jpg"
-      gallery: []
-      link: ""
-      tags: [Freshmen , Registeration , Google Sheets , Networking skills]
+      tags: [Freshmen , Registration , Google Sheets , Networking Skills]
 
     - title: Larngear 24th & 25th Camp
       category: Volunteering
-      year: 2025
-      description: Built a working prototype with my team in 48 hours.
-      image: ""
-      link: ""
+      team: Academic Affairs
+      year: Dec 2024, Dec 2025
+      description: Planned and managed the workshop schedule for two consecutive years of the camp.
+      image: "images/activities/larngear.png"
       tags: [Freshmen, Sophomore , Time Management , Public Speaking]
 
-    - title: Intania Open House 2025 
+    - title: CU Freshmen Fest 2025 & RubPuenKaoMai 2026
       category: Volunteering
+      team: [Vinyl Designer, Walkie-Talkie]
       year: Mar 2025
-      description: Registeration Affairs
-      details: |
-          Managing Google Sheets
-      image: ""
-      gallery: []
-      link: ""
-      tags: [Freshmen , Google Sheets , Troubleshooting Skills]
+      description: Designed vinyl banners and name badges, and managed walkie-talkie equipment for RPKM 2026, the welcome event for incoming freshmen.
+      image: "images/activities/rubpuenkaomai.jpg"
+      link: "https://canva.link/d7gu12ipnip12ur"
+      tags: [Sophomore , Graphic Design , Walkie-Talkie]
 
-
-    - title: Intania Open House 2025 
+    - title: Hello CP53
       category: Volunteering
-      year: Mar 2025
-      description: Registeration Affairs
-      details: |
-          Managing Google Sheets
-      image: ""
-      gallery: []
-      link: ""
-      tags: [Freshmen , Google Sheets , Troubleshooting Skills]
+      team: Activity Affairs
+      year: July 2026
+      description: Create recreational activities for incoming Freshmen Computer Engineering students
+      image: "images/activities/hello_cp53.png"
+      tags: [Junior , Entertainment , Networking Skills]
+
+    ## ------------------- Competitions -------------------
+    - title: CUBS Hackathon 2024
+      category: Competitions
+      team: Technical Team
+      year: July 2024
+      description: Collaborated with teammates to develop Real x Chain, a blockchain-based real estate platform concept
+        aimed at improving transaction transparency and reducing costs, supported by a business model and pitch deck.
+      image: "images/activities/cubs_hackathon.png"
+      link: "https://canva.link/f8mlsy0u2abw0vu"
+      tags: [Freshmen , Blockchain , Presentation]
+
+    - title: AIEI Hackathon
+      category: Competitions
+      team: Participation Award
+      year: Sep 2025
+      description: Developed idea of chatbot LINE OA to help queuing in hospital faster. Using Data Science & API Skills.
+      image: "images/activities/aiei_hackathon.png"
+      link: "https://github.com/NuBFightForMyDream/AIEI-Hackathon"
+      tags: [Sophomore , AI , Chatbot , Prototype]
+
+    - title: AIHack Financial 2025
+      category: Competitions
+      team: Participation Award
+      year: Nov 2025
+      description: Developed model to predict debtor. Using scikit-learn with RandomForest model (AUC Score 0.59)
+      image: "images/activities/aihack_2025.png"
+      tags: [Sophomore , Data Science , Machine Learning]
+
+    - title: Chula LegalTech Year 8
+      category: Competitions
+      team: In progress
+      year: Nov 2026 - Present
+      description: In progress
+      image: "images/activities/cu_legaltech.jpg"
+      link: "https://canva.link/f8mlsy0u2abw0vu"
+      tags: [Junior , Law , Prototype]
+
+    - title: AIHack Financial 2026
+      category: Competitions
+      team: In progress
+      year: Nov 2026 - Present
+      description: In progress
+      image: "images/activities/aihack_2025.png"
+      tags: [Junior , Data Science , Machine Learning]
+
+    - title: GCI Data Science & Machine Learning 2026
+      category: Competitions
+      team: In progress
+      year: Oct 2026 - Present
+      description: In progress
+      image: "images/activities/gci_ds_ml.jpeg"
+      tags: [Junior , Data Science , Machine Learning]
+
+    ## ------------------- Extracurricular -------------------
+    ## SGCU , Spanisit , CUEE Camp
+
+    - title: Student Government of Chulalongkorn University (SGCU68)
+      category: Extracurricular
+      team: [Wellness Practitioner]
+      year: July 2025 - April 2026
+      description: Helped improve Chula students' mental wellness by shaping wellness policies and creating graphics for the SGCU page.
+      image: "images/activities/sgcu_welfare.png"
+      tags: [Sophomore , Policy Maker , Graphic Design]
+
+    - title: Student Council of Chulalongkorn University (Spanisit68)
+      category: Extracurricular
+      team: [Secretary of Statistics Affairs]
+      year: July 2025 - April 2026
+      description: Ran the administration and paperwork of the Data & Statistics Affairs & recheck works from teammates & do some data cleaning with Google Sheets and Google Colab
+      image: "images/activities/spanisit_chula_68.png"
+      link : "https://www.facebook.com/share/p/1Nn1voLN6i/"
+      tags: [Sophomore , Data Analytics , Secretary]
+
+    - title: CUEE Camp III Website
+      category: Extracurricular
+      team: [Front-End Developer]
+      year: Oct 2025 - Jan 2026
+      description: Developing Front-End Static Website for high-school students to find favorite tracks in Electrical Engineering
+      image: "images/activities/cuee_camp_iii.png"
+      link : "https://github.com/NuBFightForMyDream/CUEE_Camp_III_Website"
+      tags: [Sophomore , Front-End Development]
 
 
-    - title: Intania Open House 2025 
-      category: Volunteering
-      year: Mar 2025
-      description: Registeration Affairs
-      details: |
-          Managing Google Sheets
-      image: ""
-      gallery: []
-      link: ""
-      tags: [Freshmen , Google Sheets , Troubleshooting Skills]
-
+    ## ------------------- Workshops & Certificates -------------------
 
 # ─────────────────────────────────────────────
-# 💼 Experiences — ประสบการณ์ทำงาน / ฝึกงาน (การ์ดแบบเดียวกับ Projects / กดดูรายละเอียดได้)
-#   ใส่ช่องได้เหมือน Projects ทุกอย่าง (category ใช้ทำปุ่มกรอง เช่น Internship / Part-time)
-#   ⚠️ 2 รายการด้านล่างเป็นตัวอย่าง → แก้เป็นประสบการณ์จริง
+# 💼 Experiences — ประสบการณ์ทำงาน / ชมรม / ฝึกงาน
+#    บนเว็บ: ฉากที่ 5 · แถวรายการเรียบๆ (มีรูปเล็กถ้าใส่ image) กดดูรายละเอียดได้
+#   ใส่ช่องได้เหมือน Projects ทุกอย่าง (category ใช้ทำปุ่มกรอง เช่น Internship / Part-time / Clubs)
 # ─────────────────────────────────────────────
 experiences:
-  menu: Experiences
-  title: Where I've worked
-  subtitle: Click a card to see the details.
+  menu: Experiences                   # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
+  title: Clubs & work experience
+  subtitle: Click any item to see the details.
   items:
-    - title: Data Science Intern
-      category: Internship
-      year: 2026
-      description: Cleaned data and built dashboards to help the team make decisions faster.
-      details: |
-        Worked with the analytics team on data cleaning, exploratory analysis and building dashboards for weekly reports.
-      image: ""
-      gallery: []
-      link: ""
-      tags: [Python, SQL, Dashboard]
+    - title: TU Robot Club Member
+      category: Clubs
+      year: May 2024 - May 2026
+      description: Learn more about basics of Arduino and teach some part of basics to club members
+      image: "images/experiences/tu_robot_club.jpg"
+      tags: [High-School, Robotics , Arduino]
 
-    - title: Freelance Designer
-      category: Freelance
-      year: 2025
-      description: Designed social media graphics and branding for small businesses.
-      image: ""
-      link: ""
-      tags: [Canva, Branding]
+    - title: Teaching Assistant at Dept. of Computer Engineering
+      category: Part-Time
+      year: August 2025 - July 2026
+      description: Answering questions, Grading Scores and Clarify students' doubt about coding.
+      image: "images/experiences/ta_comp_prog.jpg"
+      tags: [Sophomore , Programming , Python]
+
+    - title: Technology Team - CU Blockchain Society 2026
+      category: Clubs
+      year: Nov 2026 - Present
+      description: Develop AI-powered applications and data pipelines for club projects. Integrate AI models, analyze data, and collaborate with the team to deploy and evaluate AI solutions.
+      image: "images/experiences/cu_blockchain.png"
+      tags: [Junior, AI , Data Science , Machine Learning]
+
+    - title: Intania Stage Play Club Member
+      category: Clubs
+      year: Nov 2026 - Present
+      description: Supported theatre productions through lighting setup, prop preparation, and backstage coordination to ensure smooth performances.
+      image: "images/experiences/intania_stage_play.jpg"
+      tags: [Junior, Stage Play , Drama Arts]
 
 
 # ─────────────────────────────────────────────
 # 🎓 Education — การศึกษา (เรียงจากล่าสุดไปเก่าสุด)
+#    บนเว็บ: ฉากที่ 3 · หน้าจอค้างไว้แล้วเปลี่ยนทีละช่วงตามเส้นเชือกด้านข้าง
 # ─────────────────────────────────────────────
 education:
-  menu: Education
-  title: What have I learned since I was born
+  menu: Education                     # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
+  title: My learning journey so far
   items:
     - period: January 2026 - Present
       title: Junior Computer Engineering Student 💻
       gpax : 2.75
       place: Chulalongkorn University
-      detail: Branding, graphics and video for small businesses — from the first brief to final delivery.
+      detail: Transferred into Computer Engineering to focus on software, data science and machine learning.
 
     - period: August 2024 - December 2025
       title: Electrical Engineering Student ⚡️
       gpax : 2.88
       place: Chulalongkorn University
-      detail: Designed social media and print materials for more than 10 client brands.
+      detail: Started my engineering journey here, building a strong foundation in math, circuits and programming.
 
     - period: 2021 - 2024
-      title: Arts-Mathematics Student 
+      title: Arts-Mathematics Student
       gpax : 3.30
-      place: Traim Udom Suksa School
-      detail: My senior project was selected for the faculty's annual exhibition.
+      place: Triam Udom Suksa School
+      detail: Studied in the Arts-Mathematics program, and joined the school's public relations team and stage plays along the way.
 
 
 # ─────────────────────────────────────────────
-# ✉️ Contact — ส่วนท้ายของเว็บ
-# ─────────────────────────────────────────────
-contact:
-  menu: Contact
-  title: Have a project in mind? Let's talk.
-  text: Open to freelance work, full-time roles, or just a chat about ideas. I usually reply within 1–2 days.
-
-
-# ─────────────────────────────────────────────
-# 🔚 Footer — ท้ายเว็บ
+# 🔚 Footer — ท้ายเว็บ (ม่านปิด / Curtain call)
+#    บนเว็บ: ฉากสุดท้าย · ไฟในโรงสว่างขึ้น + ชื่อ + อีเมล + โซเชียล + Resume
 # ─────────────────────────────────────────────
 footer:
-  text: Designed with care ✦ Thanks for stopping by
+  text: Wanna know more about me? Feel free to contact me via   # ข้อความเล็กเหนือชื่อตอนจบ
 
 
 # ─────────────────────────────────────────────
@@ -346,14 +443,15 @@ footer:
 # ─────────────────────────────────────────────
 labels:
   view_work: View my work             # ปุ่มหลักหน้าแรก
-  contact_me: Get in touch            # ปุ่มรองหน้าแรก
-  nav_button: Let's talk              # ปุ่มมุมขวาบน
-  all: All                            # ปุ่มกรอง "ทั้งหมด" ในส่วน Work
+  contact_me: Get in touch            # ปุ่มรองหน้าแรก (กดแล้วเปิดอีเมล)
+  nav_button: Let's talk              # ปุ่มในกล่องเมนูมุมขวาล่าง (กดแล้วไปส่วนติดต่อ / เปิดอีเมล)
+  menu_button: Scenes                 # ปุ่มเปิดรายการส่วนต่างๆ ในกล่องเมนูมุมขวาล่าง
+  all: All                            # ปุ่มกรอง "ทั้งหมด" ใน Projects / Activities / Experiences
   featured: Featured                  # ป้ายบนการ์ดที่ featured: true
-  open_project: View                  # คำในวงกลมตอนเอาเมาส์ชี้การ์ด
+  open_project: View                  # คำบนการ์ดผลงาน (กดแล้วเปิดรายละเอียด)
   visit_project: View live project    # ปุ่มในหน้ารายละเอียดผลงาน (เมื่อมี link)
   watch_video: Watch video            # ปุ่มดูวิดีโอ (เมื่อ video ไม่ใช่ YouTube)
-  send_email: Send me an email        # ปุ่มในส่วน Contact
+  send_email: Send me an email        # ปุ่มท้ายเว็บ
   download_resume: Download resume    # ปุ่มดาวน์โหลด Resume (เมื่อมี resume)
   back_to_top: Back to top            # ปุ่มท้ายเว็บ
   gpax: GPAX                          # ป้ายเกรดเฉลี่ยในส่วน Education (เมื่อมี gpax)

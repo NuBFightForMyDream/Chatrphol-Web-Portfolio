@@ -17,6 +17,7 @@ content:
         type: object
         fields:
           - { name: name, label: ชื่อ, type: string, required: true }
+          - { name: site_title, label: ชื่อบนแท็บเบราว์เซอร์, type: string }
           - { name: greeting, label: คำทักทาย (เหนือชื่อ), type: string }
           - { name: role_prefix, label: คำนำหน้าตำแหน่ง, type: string }
           - { name: roles, label: ตำแหน่ง/สิ่งที่ทำ (พิมพ์สลับกัน), type: string, list: true }
@@ -84,6 +85,7 @@ content:
             fields:
               - { name: title, label: ชื่อผลงาน, type: string, required: true }
               - { name: category, label: หมวด, type: string }
+              - { name: type, label: ประเภท (เช่น Coursework Project / Personal Project), type: string }
               - { name: year, label: ปี, type: string }
               - { name: description, label: คำอธิบายสั้น, type: text }
               - { name: details, label: รายละเอียดเต็ม, type: text }
@@ -101,13 +103,19 @@ content:
           - { name: menu, label: ชื่อเมนู, type: string }
           - { name: title, label: หัวข้อ, type: string }
           - { name: subtitle, label: คำอธิบาย, type: string }
+          - { name: categories, label: ปุ่มกรองหมวด (โชว์เสมอ), type: string, list: true }
           - name: items
             label: รายการกิจกรรม
             type: object
             list: true
             fields:
               - { name: title, label: ชื่อกิจกรรม, type: string, required: true }
-              - { name: category, label: หมวด, type: string }
+              - name: category
+                label: หมวด
+                type: select
+                options:
+                  values: [Volunteering, Competitions, Extracurricular]
+              - { name: team, label: ฝ่าย, type: string, list: true }
               - { name: year, label: ปี, type: string }
               - { name: description, label: คำอธิบายสั้น, type: text }
               - { name: details, label: รายละเอียดเต็ม, type: text }
@@ -188,3 +196,4 @@ content:
           - { name: send_email, label: ปุ่มส่งอีเมล, type: string }
           - { name: download_resume, label: ปุ่มดาวน์โหลด Resume, type: string }
           - { name: back_to_top, label: ปุ่มกลับด้านบน, type: string }
+          - { name: menu_button, label: ปุ่มเปิดรายการส่วนต่างๆ (มุมขวาล่าง), type: string }
