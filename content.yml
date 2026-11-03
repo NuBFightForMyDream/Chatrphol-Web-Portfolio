@@ -224,7 +224,7 @@ projects:
 activities:
   menu: Activities                    # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
   title: Activities I've joined
-  subtitle: Click any item to see the details.
+  subtitle: So many activites I've done since High-School. 
   categories: [Volunteering, Competitions, Extracurricular]   # ปุ่มกรองที่โชว์เสมอ (หมวดที่ยังไม่มีกิจกรรมจะเป็นสีจาง)
   items:
 
