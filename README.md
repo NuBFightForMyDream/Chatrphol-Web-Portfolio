@@ -1,178 +1,127 @@
-# ✦ Chatrphol — Web Portfolio
+# 🎭 Chatrphol's Web Portfolio
 
-เว็บ portfolio หน้าเดียว (ภาษาอังกฤษ) ที่มี animation และ **ไม่ต้องเขียนโค้ด**
-**ทุกข้อความบนเว็บอยู่ใน `content.yml` ไฟล์เดียว** ทั้งข้อมูลส่วนตัว ผลงาน ทักษะ ประสบการณ์ สี และคำบนปุ่ม แก้ไฟล์นั้นแล้วเว็บจะเปลี่ยนตามเอง
+A one-page portfolio styled as a stage play. It opens on a closed curtain with my name on it. Scrolling opens the curtain, and every section after that is a "scene" with its own stage lighting.
+
+All the text on the site lives in **`content.yml`**: profile, projects, activities, experiences, education, skills, colours and button labels. Edit that file and the site updates. No code needed.
+
+**Live:** https://nubfightformydream.github.io/Chatrphol-Web-Portfolio/
 
 ```
-📁 Chatrphol-Web-Portfolio
-├── content.yml   ← ✏️ แก้แค่ไฟล์นี้ (ข้อมูลส่วนตัว, ผลงาน, ทักษะ, ประสบการณ์, สี, คำบนปุ่ม)
-├── images/       ← 🖼️ ใส่รูปผลงาน / รูปโปรไฟล์ที่นี่
-├── index.html    ┐
-├── assets/       ┘ โค้ดของเว็บ (ไม่ต้องแตะ)
-└── .pages.yml    ← (ทางเลือก) ใช้แก้ข้อมูลผ่านหน้าฟอร์ม
+├── content.yml            ← edit this (all site text)
+├── images/                ← profile, project, activity and experience photos
+├── assets/icons/skills/   ← skill logos (.svg)
+├── .pages.yml             ← Pages CMS form config (optional)
+├── index.html             ┐
+├── assets/css, js, vendor ┘ site code
+└── scrollcraft/           ← design notes (BRIEF.md) + the pre-redesign files; not used by the site
 ```
 
 ---
 
-## 1. เผยแพร่เว็บฟรีด้วย GitHub Pages (ทำครั้งเดียว)
+## Publishing
 
-1. เข้า repo บน GitHub → **Settings** → เมนูซ้าย **Pages**
-2. ตรง **Build and deployment** → Source เลือก **Deploy from a branch**
-3. Branch เลือก **`main`** และโฟลเดอร์ **`/ (root)`** → กด **Save**
-4. รอประมาณ 1–2 นาที เว็บจะอยู่ที่
-   **https://nubfightformydream.github.io/Chatrphol-Web-Portfolio/**
+GitHub Pages: **Settings → Pages → Deploy from a branch → `main` / `(root)`**. Any commit to `main` goes live in about a minute.
 
-> ถ้าโค้ดยังอยู่ใน branch อื่น ให้ merge เข้า `main` ก่อน หรือเลือก branch นั้นในข้อ 3 แทนก็ได้
+If the site still shows the old version, hard refresh with **Cmd + Shift + R**.
 
 ---
 
-## 2. แก้ข้อมูล (ผ่านหน้าเว็บ GitHub ไม่ต้องลงโปรแกรม)
+## Editing
 
-1. เปิดไฟล์ **`content.yml`** บน GitHub
-2. กดไอคอน ✏️ (Edit this file) มุมขวาบน
-3. แก้ข้อความหลังเครื่องหมาย `:` ได้เลย
-4. กดปุ่มเขียว **Commit changes...** → **Commit changes**
-5. รอ ~1 นาที แล้วรีเฟรชเว็บ
+- **On GitHub:** open `content.yml` → ✏️ → edit → **Commit changes**
+- **Pages CMS (form view):** https://app.pagescms.org → repo `Chatrphol-Web-Portfolio`, branch `main`. Saving through it may strip the `#` comments from `content.yml`. That doesn't affect the site.
+- **Locally:** opening `index.html` directly won't work, because the browser blocks reading `content.yml` from disk. Run `python3 -m http.server 8000` and open http://localhost:8000, or use VS Code Live Server.
 
-### 👤 แก้ข้อมูลส่วนตัว
+Every line in `content.yml` has a `#` comment saying where it appears. If the YAML breaks, the site shows the line number and how to fix it.
 
-ข้อมูลส่วนตัวทั้งหมดอยู่ในก้อน `profile:` ด้านบนสุดของ `content.yml` แก้ตรงนี้ที่เดียวแล้วเว็บจะเปลี่ยนทุกจุดที่ใช้ข้อมูลนั้น
-(ในไฟล์มีคำอธิบายหลัง `#` บอกไว้ทุกบรรทัดว่าไปโผล่ตรงไหน)
+### Where each part of `content.yml` shows up
 
-```yaml
-profile:
-  name: Chatrphol                     # ชื่อตัวใหญ่หน้าแรก + โลโก้ + ชื่อแท็บ
-  greeting: Hi there 👋 I'm           # บรรทัดเล็กเหนือชื่อ
-  role_prefix: "I'm a"                # คำหน้าตำแหน่ง
-  roles:                              # ตำแหน่งที่พิมพ์สลับกัน
-    - Creative Designer
-    - Content Creator
-  intro: I turn ideas into ...        # ย่อหน้าแนะนำตัว
-  photo: images/me.jpg                # รูปโปรไฟล์ (เว้นว่าง = ใช้ตัวอักษรแรกของชื่อ)
-  location: Bangkok, Thailand
-  email: you@gmail.com                # ปุ่มส่งอีเมลทั้งเว็บใช้อีเมลนี้
-  resume: images/resume.pdf           # ปุ่มดาวน์โหลด Resume (เว้นว่าง = ซ่อน)
-  available: true                     # ป้ายสีเขียว "Available..." (false = ซ่อน)
-  available_text: Available for new projects
-```
+The file order is not the page order. This table follows the page.
 
-| อยากเปลี่ยน | แก้ที่ |
+| Scene | On the page | Edit |
+|---|---|---|
+| 1 | Hero: curtain, name, typed roles, buttons → curtain opens on my photo in a spotlight, intro, socials, highlight tape | `profile`, `socials`, `skills.highlights` |
+| 2 | About: text, black and white playbill headshot, stat counters | `about` |
+| 3 | Education: held frame, one period at a time | `education` |
+| 4 | Skills: clapperboard, one take per tool, with logos | `skills` |
+| 5 | Experiences: rows, click for details | `experiences` |
+| 6 | Projects: held frame, cards travel sideways, filters | `projects` |
+| 7 | Activities: credits list, follow spot, filters | `activities` |
+| Close | Curtain call: house lights up, name, email, socials, resume | `footer`, `profile.email`, `profile.resume`, optional `contact` |
+
+Other things:
+
+| To change | Edit |
 |---|---|
-| ชื่อ, คำแนะนำตัว, อีเมล, รูปโปรไฟล์, Resume | `profile:` |
-| ลิงก์ Instagram / LinkedIn / Facebook ฯลฯ | `socials:` (เว้น `url: ""` = ไม่แสดง, เพิ่มอันใหม่ได้) |
-| เรื่องราวเกี่ยวกับตัวเอง + ตัวเลขเด่น | `about:` |
-| หัวข้อ / ชื่อเมนูของแต่ละส่วน | `title:` และ `menu:` ในแต่ละส่วน |
-| คำบนปุ่มต่างๆ (View my work, Let's talk ...) | `labels:` ท้ายไฟล์ |
-| สีทั้งเว็บ | `theme:` |
+| Browser tab title | `profile.site_title`. Also update `<title>` in `index.html` so shared links in LINE or Facebook show it |
+| Section headings / menu names | `title`, `subtitle`, `menu` in each section |
+| Button and label text (View my work, Let's talk, Scenes…) | `labels` |
+| Colours | `theme` |
 
-### ➕ เพิ่มผลงานใหม่
+### Recipes
 
-Copy บล็อกนี้ไปวางต่อท้ายใน `projects:` → `items:` (ย่อหน้าให้ตรงกับบล็อกเดิม)
+**New project / activity / experience.** All three use the same fields. Copy a block into that section's `items:` and keep the indentation.
 
 ```yaml
     - title: My New Project
-      category: Branding
-      year: 2026
-      description: A short description shown on the card.
-      details: A longer story shown when the card is opened (optional).
-      image: images/my-work.jpg
-      link: https://...
-      tags: [Logo, Figma]
+      category: Machine Learning        # builds the filter buttons
+      type: Personal Project            # tag under the title (projects)
+      team: [Front-End Developer]       # tag under the title (activities)
+      year: Dec 2026
+      description: Short line.
+      details: Longer text for the detail view (optional).
+      image: "images/projects/my-project.png"   # empty = auto playbill cover
+      gallery: [images/a.jpg, images/b.jpg]
+      video: https://youtu.be/xxxx      # YouTube plays in the detail view
+      link: https://github.com/...
+      tags: [Junior, Python]
+      featured: false                   # projects: wide card + Featured label
 ```
 
-- **ไม่มีรูปปก?** เว้น `image: ""` ไว้ เว็บจะสร้างปกสีให้เอง
-- **มีวิดีโอ YouTube?** ใส่ `video: https://youtu.be/xxxx` วิดีโอจะเล่นได้ในหน้ารายละเอียด
-- **อยากโชว์หลายรูป?** ใส่ `gallery: [images/a.jpg, images/b.jpg]`
-- **อยากให้การ์ดใหญ่เด่น?** ใส่ `featured: true`
-- **ปุ่มกรองหมวด** สร้างจาก `category` ให้อัตโนมัติ
+Any field can be left out. `activities.categories` sets filter buttons that always show, even when empty.
 
-### 🖼️ ใส่รูป
+**Stats.** `github: contributions` or `github: repos` pulls live numbers from the GitHub link in `socials`. `number` is the fallback if the API is down or rate-limited.
 
-1. เปิดโฟลเดอร์ **`images`** บน GitHub → **Add file** → **Upload files** → ลากรูปมาวาง → Commit
-2. ใน `content.yml` ใส่ชื่อรูปเป็น `images/ชื่อไฟล์.jpg`
-   (ตั้งชื่อไฟล์เป็นภาษาอังกฤษ ไม่มีเว้นวรรค เช่น `cafe-logo.jpg` และย่อรูปให้ไม่เกิน ~500KB จะโหลดเร็ว)
+**Skills and logos.** `skills.items` can hold any number of tools. The scene length adapts, and duplicates show once. Logos are matched by name to `assets/icons/skills/<name>.svg`, lowercased with symbols removed: `Docker` → `docker.svg`, `C++` → `cplusplus.svg`, `Node.js` → `nodejs.svg`. `HTML/CSS/JavaScript` shows one logo per part. A missing file just means no logo. New ones come from [devicon.dev](https://devicon.dev) ("plain" SVGs) or [simpleicons.org](https://simpleicons.org); the site recolours them to match.
 
-### 🎨 เปลี่ยนสีทั้งเว็บ
-
-แก้ 2 บรรทัดนี้ใน `content.yml` (หารหัสสีได้ที่ https://htmlcolorcodes.com)
+**Contact block (optional).** The close already has email, socials and resume. Adding this gives it a heading and line of its own, and adds Contact to the menu:
 
 ```yaml
-theme:
-  accent: "#8b5cf6"   # สีหลัก
-  accent2: "#22d3ee"  # สีรอง (ไล่สีคู่กับสีหลัก)
+contact:
+  menu: Contact
+  title: Let's work together
+  text: Open to internships in data and AI.
 ```
 
-### 🏷️ เปลี่ยนคำบนปุ่ม
+**Colours.** The two colours act as stage-light gels. `accent` is the interface colour (buttons, menu, numbers). `accent2` is used only as light (spotlight, house lights, stars).
 
-คำเล็กๆ บนปุ่มและป้าย (เช่น `View my work`, `Let's talk`, `Back to top`) อยู่ในก้อน `labels:` ท้ายไฟล์ `content.yml` แก้เป็นคำที่ชอบได้เลย
+**Images.** Upload to `images/` and reference them as `images/name.jpg`. Use English names with no spaces, and keep files under about 500KB. Phone photos are several MB.
 
-### 🙈 ซ่อนบางส่วน
+**Hiding a section.** Empty its `items` and it disappears from the page and the menu.
 
-ส่วนไหนที่ไม่มีข้อมูล (เช่นลบรายการ `experience` ออกหมด) จะถูกซ่อนออกจากเว็บและเมนูให้อัตโนมัติ
+### YAML rules
 
----
-
-## 3. กฎ 5 ข้อของไฟล์ `content.yml`
-
-1. บรรทัดที่ขึ้นต้นด้วย `#` คือคำอธิบาย เว็บจะไม่แสดง
-2. อย่าลบชื่อหัวข้อและ `:` (เช่น `name:`)
-3. การเว้นวรรคหน้าบรรทัดมีความหมาย → ใช้ **Spacebar** เท่านั้น ห้ามใช้ Tab
-4. ข้อความที่มี `:` หรือ `#` อยู่ข้างใน ให้ครอบด้วย `"..."`
-5. รายการ (ผลงาน/ทักษะ) ขึ้นต้นด้วย `-` เสมอ
-
-**ถ้าพิมพ์ผิด** เว็บจะไม่พัง แต่จะขึ้นหน้าบอกว่า **ผิดที่บรรทัดไหน** พร้อมวิธีแก้ ให้กลับไปแก้บรรทัดนั้นแล้ว commit ใหม่
+1. `#` starts a comment
+2. Don't delete keys or their `:`
+3. Indent with spaces, never Tab
+4. Quote text that contains `:` or `#`
+5. List items start with `-`
 
 ---
 
-## 4. (ทางเลือก) แก้ข้อมูลผ่านหน้าฟอร์มด้วย Pages CMS
+## How the page behaves
 
-ถ้าไม่อยากแก้ไฟล์ข้อความเลย สามารถใช้ [Pages CMS](https://pagescms.org) (ฟรี) ได้
-ซึ่งจะเปลี่ยน `content.yml` ให้กลายเป็นฟอร์มกรอกข้อมูลพร้อมปุ่มอัปโหลดรูป
-
-1. เข้า https://app.pagescms.org → Sign in with GitHub
-2. เลือก repo **Chatrphol-Web-Portfolio** และ branch ที่ใช้ทำเว็บ
-3. จะเห็นเมนู **Portfolio** ให้กรอกข้อมูลได้เลย (ใช้ config จากไฟล์ `.pages.yml`)
-
-> หมายเหตุ: ถ้าบันทึกผ่าน Pages CMS คำอธิบาย `#` ใน `content.yml` อาจหายไป ไม่มีผลกับหน้าเว็บ
-> และถ้า Pages CMS แจ้งว่า config ผิด ให้กลับไปใช้วิธีแก้ไฟล์ตรงๆ ในข้อ 2
-
----
-
-## 5. ดูเว็บในเครื่องตัวเอง (ไม่จำเป็น)
-
-การดับเบิลคลิก `index.html` จะไม่ทำงาน เพราะเบราว์เซอร์ไม่ยอมให้อ่าน `content.yml` จากไฟล์ในเครื่อง ให้ใช้วิธีใดวิธีหนึ่งนี้แทน
-
-- **VS Code** → ติดตั้ง extension **Live Server** → คลิกขวาที่ `index.html` → *Open with Live Server*
-- หรือรันคำสั่งนี้ในโฟลเดอร์โปรเจกต์ แล้วเปิด http://localhost:8000
-
-```bash
-python3 -m http.server 8000
-```
-
----
-
-## ✨ Animation ที่มีในเว็บ
-
-| ส่วน | Animation (ธีมละครเวที) |
+| Part | Behaviour |
 |---|---|
-| หน้าแรก | ม่านเวทีปิดอยู่พร้อมชื่อ พอเลื่อนลง ไฟในโรงดับ ม่านเปิด แล้วไฟสปอตไลต์ส่องรูปโปรไฟล์บนเวที (ชื่อลอยขึ้นไปอยู่ใต้ขอบม่านด้านบน) |
-| ทักษะเด่น (highlights) | เขียนบนเทปติดพื้นเวทีรอบตัว |
-| ดาวพื้นหลัง | ดาวระยิบระยับที่ลากเส้นเชื่อมเมื่อเมาส์เข้าใกล้ (เหมือนเดิม) ถ้าปล่อยหน้าไว้นิ่งๆ ดาวทั้งฟ้าจะค่อยๆ เชื่อมกันเป็นกลุ่มดาว ถ้าเลื่อนเร็วดาวจะยืดเป็นเส้นแสง |
-| ความเร็วการเลื่อน | เลื่อนช้า = "Full run" ได้ฉากเต็มๆ ภาพเคลื่อนนุ่ม ไฟค่อยๆ เปลี่ยน · เลื่อนเร็ว = "Cue to cue" ฉากที่ค้างหน้าจอ (Education / Projects / ท้ายเว็บ) จะสั้นลงให้ผ่านไปได้เลย ไฟเปลี่ยนทันที (โหมดแสดงที่กล่องคิว) |
-| ตำแหน่ง | พิมพ์-ลบสลับกันเหมือนพิมพ์ดีด |
-| กล่องคิวมุมขวาล่าง (เมนู) | เหมือนโต๊ะคุมเวที: ไฟแดง STANDBY เมื่อใกล้ถึงส่วนถัดไป และไฟเขียว GO เมื่อถึง แสงไฟทั้งหน้าเว็บจะเปลี่ยนสีตามแต่ละส่วน กด "Scenes" เพื่อเปิดเมนูไปส่วนต่างๆ (เปลี่ยนคำได้ที่ `labels.menu_button`) |
-| About | รูปโปรไฟล์ขาวดำแบบสูจิบัตรละคร, ตัวเลขวิ่งนับขึ้นตอนเลื่อนมาเห็น |
-| Education | หน้าจอค้างไว้ แล้วเปลี่ยนทีละช่วงชีวิตตามเส้นเชือกที่ค่อยๆ เติมสี |
-| Skills | กระดานสเลท (clapperboard) ค้างหน้าจอไว้ ทุกครั้งที่เลื่อน ไม้สเลทจะตีแล้วตัดเป็น take ใหม่ (ชื่อเครื่องมือทีละอัน) และติ๊กในรายการข้างๆ สะสมไปเรื่อยๆ พร้อมโลโก้ของแต่ละเครื่องมือ (ถ้าเปิด Reduce motion จะเป็นเช็กลิสต์ธรรมดา) |
-| Projects | หน้าจอค้างไว้ แล้วผลงานเลื่อนผ่านในแนวนอน |
-| Activities | ไฟสปอตตามส่องกิจกรรมที่กำลังอ่าน พร้อมโชว์รูปในกรอบด้านซ้าย (มือถือโชว์รูปในแต่ละรายการ) |
-| ท้ายเว็บ | ไฟในโรงสว่างขึ้นเป็นโทนอุ่น พร้อมอีเมล/โซเชียล/Resume |
-| รายละเอียดผลงาน | กดการ์ด/รายการเพื่อเปิดหน้าต่างรายละเอียด (รูป, gallery, YouTube, ลิงก์) |
+| Prompt desk (bottom right) | Works as the menu, styled as a stage manager's desk: red **STANDBY** as the next scene approaches, green **GO** when it arrives, and the page lighting changes with each scene. **Scenes** opens the section list |
+| Scroll speed | Slow = **Full run**: full-length scenes, eased motion, slow light fades. Fast = **Cue to cue**: the pinned scenes ahead shorten, lights snap, nothing waits |
+| Stars | Twinkle and link up to the mouse. Left still, the whole sky joins into constellations. Scrolling fast streaks them |
+| Skills | Each scroll step claps a new take, and ticks build up in the list |
+| Projects | When a filter leaves only a few cards, they centre and stop travelling |
+| Activities | A follow spot lights the row being read and shows its photo in the side window (inline photos on mobile) |
+| Detail view | Click any card or row; Esc closes it |
+| Reduced motion | Animations are off. The hero is shown as an open, lit stage and every section reads as a normal page |
 
-**โลโก้ใน Skills:** เว็บหาไฟล์ `assets/icons/skills/<ชื่อ>.svg` ให้เอง โดยใช้ชื่อเครื่องมือเป็นตัวพิมพ์เล็กและตัดสัญลักษณ์ออก (เช่น `Docker` → `docker.svg`, `C++` → `cplusplus.svg`, `Node.js` → `nodejs.svg`) ถ้าเขียนแบบ `HTML/CSS/JavaScript` จะโชว์โลโก้ทีละส่วน ถ้าไม่มีไฟล์ก็แค่ไม่มีโลโก้ หาโลโก้ใหม่ได้ที่ [devicon.dev](https://devicon.dev) หรือ [simpleicons.org](https://simpleicons.org) (โหลดเป็น SVG แล้วตั้งชื่อตามนี้ เว็บจะทำเป็นสีเดียวกับธีมให้เอง)
+Plain HTML/CSS/JS, no build step.
 
-animation ทั้งหมดปิดให้อัตโนมัติสำหรับคนที่ตั้งค่าเครื่องให้ "ลดการเคลื่อนไหว" (Reduce motion) หน้าแรกจะแสดงเวทีที่เปิดม่านแล้วแบบนิ่งๆ แทน
-
----
-
-สร้างด้วย HTML/CSS/JavaScript ล้วน ไม่ต้อง build ไม่ต้องลงอะไร · อ่าน YAML ด้วย [js-yaml](https://github.com/nodeca/js-yaml) (MIT) · scroll staging ด้วย scrollcraft engine (assets/vendor/scrollcraft.js)
+**Credits:** [js-yaml](https://github.com/nodeca/js-yaml) (MIT) · scrollcraft engine (`assets/vendor/scrollcraft.js`) · skill logos from [Devicon](https://devicon.dev) (MIT) and [Simple Icons](https://simpleicons.org) (CC0), see `assets/icons/skills/CREDITS.md` · fonts: Big Shoulders Display and IBM Plex Sans Thai (Google Fonts)
