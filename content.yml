@@ -158,10 +158,9 @@ projects:
       category: Machine Learning
       type: Coursework Project
       year: Oct - Nov 2026
-      description: In progress
-      image: ""
-      gallery: []
-      video: ""
+      description: Do machine learning process with ensemble learning models (XGBoost , Random Forest) and other models (Linear Regression , Multi Layer Perceptron) 
+        to predict water turbidity with TSS value , also having visualizer web for Data visualization.
+      image: "images/projects/2107541_mlenvi_project.png"
       link: "https://github.com/NuBFightForMyDream/2107541_MLEnvi_Project_PredictingWaterTurbidityWithTSS"
       tags: [Junior , Python , Machine Learning , Scikit-Learn]
       featured: false
@@ -384,7 +383,7 @@ experiences:
     - title: Teaching Assistant at Dept. of Computer Engineering
       category: Part-Time
       year: August 2025 - July 2026
-      description: Answering questions, Grading Scores and Clarify students' doubt about coding.
+      description: Answering questions, Grading Scores and Clarify students' doubt about coding. (Courses 2110101 Comp Prog , 2110211 Comp Eng Ess , 2190101 ISE Comp Prog)
       image: "images/experiences/ta_comp_prog.jpg"
       tags: [Sophomore , Programming , Python]
 
