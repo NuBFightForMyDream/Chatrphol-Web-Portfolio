@@ -199,7 +199,7 @@ projects:
       type : Coursework Project
       year: November 2026
       description: Import data into  SQLite database with SQL Command , Clean Dataframe and do data analytics , Visualize data to see environmental insights.
-      image: "images/projects/2107540_DatasciEnvi.png"
+      image: "images/projects/2107540_DatasciEnvi_Project_Cover.png"
       link: "https://github.com/NuBFightForMyDream/2107540_DataSciEnvi_Project_BangkokSustainability"
       tags: [Junior , Python , SQL , Data Analytics , Data Visualization]
 
