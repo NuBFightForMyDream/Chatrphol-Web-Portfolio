@@ -195,7 +195,7 @@ projects:
 
 
     - title: Bangkok Sustainability with Green Space per Capita & PM2.5 Factors
-      category: Python
+      category: Data Analytics
       type : Coursework Project
       year: November 2026
       description: Import data into  SQLite database with SQL Command , Clean Dataframe and do data analytics , Visualize data to see environmental insights.
