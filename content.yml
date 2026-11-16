@@ -95,7 +95,7 @@ about:
       suffix: "+"
       label: Activities joined
 
-    - number: 4                      
+    - number: 5                      
       label: Projects Contributed
 
 
@@ -152,7 +152,7 @@ skills:
 projects:
   menu: Projects                      # ชื่อในเมนู Scenes (มุมขวาล่าง) และบนกล่องคิว
   title: Projects I've worked on
-  subtitle: There are 4 projects contributed since I studied Chulalongkorn University (Including Coursework Projects & Personal Projects)
+  subtitle: There are 5 projects contributed since I studied Chulalongkorn University (Including Coursework Projects & Personal Projects)
   items:
     - title: Predicting Water Turbidity with Total Suspended Solids Concentration
       category: Machine Learning
@@ -170,7 +170,7 @@ projects:
       type: Coursework Project
       year: Sept - Dec 2026
       description: In progress
-      image: ""
+      image: "images/projects/2110582_AI_Apps_Project_Cover.png"
       link: "https://github.com/NuBFightForMyDream/2110582_AI_and_Its_Applications_CEDT"
       tags: [Junior , Python , AI Agents , Machine Learning]
       featured: false
@@ -199,10 +199,9 @@ projects:
       type : Coursework Project
       year: November 2026
       description: Import data into  SQLite database with SQL Command , Clean Dataframe and do data analytics , Visualize data to see environmental insights.
-      image: "images/projects/2107540_DatasciEnvi_Project_Cover.png"
+      image: "images/projects/2107540_DataSciEnvi_Project_Cover.png"
       link: "https://github.com/NuBFightForMyDream/2107540_DataSciEnvi_Project_BangkokSustainability"
       tags: [Junior , Python , SQL , Data Analytics , Data Visualization]
-
 
     - title: Self Project 1 (Deep Learning)
       category: [Machine Learning]
