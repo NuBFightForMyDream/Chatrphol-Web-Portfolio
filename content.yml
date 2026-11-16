@@ -154,13 +154,13 @@ projects:
   title: Projects I've worked on
   subtitle: There are 4 projects contributed since I studied Chulalongkorn University (Including Coursework Projects & Personal Projects)
   items:
-    - title: Predicting Water Turbidity with TSS
+    - title: Predicting Water Turbidity with Total Suspended Solids Concentration
       category: Machine Learning
       type: Coursework Project
       year: Oct - Nov 2026
       description: Do machine learning process with ensemble learning models (XGBoost , Random Forest) and other models (Linear Regression , Multi Layer Perceptron) 
         to predict water turbidity with TSS value , also having visualizer web for Data visualization.
-      image: "images/projects/2107541_mlenvi_project.png"
+      image: "images/projects/2107541_MLEnvi_Project_Cover.png"
       link: "https://github.com/NuBFightForMyDream/2107541_MLEnvi_Project_PredictingWaterTurbidityWithTSS"
       tags: [Junior , Python , Machine Learning , Scikit-Learn]
       featured: false
