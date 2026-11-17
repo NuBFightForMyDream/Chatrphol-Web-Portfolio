@@ -3,18 +3,29 @@
    Sits on top of assets/vendor/scrollcraft.css (the taste floor + devices).
    Colours: theme.accent and theme.accent2 in content.yml are the two lighting
    gels. accent is the interface colour; accent2 is only ever light.
+   The house is a soft beige; the theatre props (the opening stage, the
+   clapperboard, the prompt desk, poster covers) stay dark, see .dark-prop.
    ========================================================================== */
 
 :root {
-  --accent: #bc97dd;
+  --accent: #7a4ea8;
   --accent-2: #f5ae72;
 
-  --sc-canvas: #0d0c0e;
-  --sc-surface: #17151a;
-  --sc-ink: #f1ebe4;
-  --sc-ink-soft: #aaa29c;
+  --sc-canvas: #f6eee3;
+  --sc-surface: #fffaf3;
+  --sc-ink: #3a2e27;
+  --sc-ink-soft: #6b5d52;
   --sc-accent: var(--accent);
-  --sc-accent-ink: #150f1a;
+  --sc-accent-ink: #fffaf3;
+  --sc-hairline: color-mix(in oklab, var(--sc-ink) 14%, transparent);
+  --sc-hairline-strong: color-mix(in oklab, var(--sc-ink) 26%, transparent);
+  --sc-edge: inset 0 1px 0 rgb(255 255 255 / 0.7);
+  --page-bg:
+    radial-gradient(60rem 40rem at 100% 0%, rgb(247 222 214 / 0.55), transparent 70%),
+    radial-gradient(55rem 40rem at 0% 100%, rgb(233 224 240 / 0.5), transparent 70%),
+    linear-gradient(165deg, #fbf6ee 0%, #f5ecdf 48%, #efe3d3 100%);
+  --star: #9c836d;
+  --logo-filter: brightness(0) invert(0.2) sepia(0.35);
 
   --sc-font-display: "Big Shoulders Display", "IBM Plex Sans Thai", system-ui, sans-serif;
   --sc-font-text: "IBM Plex Sans Thai", system-ui, sans-serif;
@@ -22,7 +33,7 @@
 
   --sc-r-sm: 2px;
   --sc-r-md: 4px;
-  --sc-shadow-color: 280 20% 2%;
+  --sc-shadow-color: 28 30% 38%;
 
   --velvet-a: #1d0b11;
   --velvet-b: #33141e;
@@ -34,6 +45,22 @@
 }
 
 body { line-height: 1.66; letter-spacing: 0.002em; }
+
+/* Theatre props stay dark in the light house: they carry their own ink */
+.dark-prop, .hero, .desk, .slate, .cover, .modal__close {
+  --sc-canvas: #0d0c0e;
+  --sc-surface: #17151a;
+  --sc-ink: #f1ebe4;
+  --sc-ink-soft: #aaa29c;
+  --sc-accent: color-mix(in oklab, var(--accent) 55%, white);
+  --sc-accent-ink: #150f1a;
+  --sc-hairline: color-mix(in oklab, #f1ebe4 12%, transparent);
+  --sc-hairline-strong: color-mix(in oklab, #f1ebe4 22%, transparent);
+  --sc-edge: inset 0 1px 0 color-mix(in oklab, #f1ebe4 10%, transparent);
+  --sc-shadow-color: 280 20% 2%;
+  --logo-filter: brightness(0) invert(0.93) sepia(0.12);
+  color: var(--sc-ink);
+}
 #app { position: relative; z-index: 2; }
 #app, .desk { transition: opacity 500ms var(--sc-ease-out); }
 body.is-loading #app, body.is-loading .desk { opacity: 0; }
@@ -146,7 +173,7 @@ p { margin: 0; }
 /* =================================================== lighting states ====
    One wash per scene. The prompt desk switches .is-on on GO, and the fade
    time is the cue time.                                                    */
-.lx { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+.lx { position: fixed; inset: 0; z-index: 0; pointer-events: none; background: var(--page-bg); }
 .lx__state { position: absolute; inset: 0; opacity: 0; transition: opacity 1.4s var(--sc-ease-in-out); }
 .lx__state.is-on { opacity: 1; }
 .stars { position: fixed; inset: 0; z-index: 1; width: 100%; height: 100%; pointer-events: none; }
@@ -167,7 +194,7 @@ p { margin: 0; }
    curtain, front-of-house spot, proscenium, the house. JS writes --o (tabs
    open), --l (stage lit) and --p (act progress) on the stage.              */
 .hero { position: relative; z-index: 2; }
-.hero__stage { height: 100vh; height: 100svh; overflow: clip; isolation: isolate; }
+.hero__stage { height: 100vh; height: 100svh; overflow: clip; isolation: isolate; background: #0b0a0d; }
 .hp { position: absolute; inset: 0; pointer-events: none; }
 
 .hp--cyc {
@@ -392,7 +419,7 @@ p { margin: 0; }
 
 /* Skill logos, drawn in the ink colour so they read as one set */
 .logos { display: inline-flex; flex: none; align-items: center; gap: 0.3em; }
-.logo { display: block; width: 1em; height: 1em; filter: brightness(0) invert(0.93) sepia(0.12); }
+.logo { display: block; width: 1em; height: 1em; filter: var(--logo-filter); }
 .kit__list .logos { font-size: 1.2rem; }
 
 /* =============================================================== SLATE ==
@@ -475,7 +502,10 @@ p { margin: 0; }
 
 /* ========================================================== REPERTOIRE == */
 .rep { padding-block: 0; }
-.rep__stage { height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: center; gap: var(--sc-6); overflow: clip; }
+.rep__stage { height: 100vh; height: 100svh; display: flex; flex-direction: column; justify-content: safe center; gap: clamp(1rem, 3.5svh, 2rem); padding-block: clamp(1rem, 4svh, 2.5rem); overflow: clip; }
+/* the whole programme has to fit one held screen, so it scales with the screen's height too */
+.rep .scene__title { font-size: min(var(--sc-t-3xl), 8.5svh); }
+.rep .scene__sub { margin-top: 0.6rem; font-size: var(--sc-t-sm); line-height: 1.5; }
 .rep .scene__head { margin: 0; display: grid; grid-template-columns: minmax(0, 1fr) auto; column-gap: var(--sc-7); align-items: end; }
 .rep .scene__head .filters { grid-column: 2; grid-row: 1 / 3; margin: 0; justify-content: flex-end; max-width: 32rem; }
 .rep__rail { gap: var(--sc-5); width: max-content; margin-inline: auto; padding-inline: var(--sc-gutter); align-items: stretch; }
@@ -485,8 +515,8 @@ p { margin: 0; }
 .rep__inner { display: flex; flex-direction: column; gap: 0.55rem; height: 100%; padding-bottom: var(--sc-4); border-bottom: 1px solid var(--sc-hairline); }
 .rep__media { position: relative; aspect-ratio: 4 / 3; overflow: hidden; border-radius: var(--sc-r-sm); background: var(--sc-surface); margin-bottom: 0.45rem; }
 .rep__media img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; transition: transform 500ms var(--sc-ease-out); }
-.rep__title { margin: 0; font-family: var(--sc-font-display); font-weight: 700; font-size: var(--sc-t-xl); line-height: 1; text-transform: uppercase; text-wrap: balance; }
-.rep__desc { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.rep__title { margin: 0; font-family: var(--sc-font-display); font-weight: 700; font-size: min(var(--sc-t-xl), 4.6svh); line-height: 1; text-transform: uppercase; text-wrap: balance; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+.rep__desc { color: var(--sc-ink-soft); font-size: var(--sc-t-sm); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 .rep__inner .tags { margin-top: 0.2rem; }
 .rep__open { margin-top: auto; padding-top: 0.5rem; display: inline-flex; align-items: center; gap: 0.4rem; font-size: var(--sc-t-sm); color: var(--sc-accent); }
 .rep__open svg { transition: transform var(--sc-d-fast) var(--sc-ease-out); }
@@ -495,6 +525,13 @@ p { margin: 0; }
   .rep__inner:hover .rep__open svg { transform: translateX(3px); }
 }
 /* without the pinned travel (reduced motion) the rail is an ordinary sideways scroll */
+@media (min-width: 761px) {
+  .rep__media { aspect-ratio: 16 / 10; }
+}
+/* short screens: keep title, picture and labels; the full text is one click away */
+@media (max-height: 820px) {
+  .rep[data-sc-act] .rep__desc, .rep[data-sc-act] .rep__inner .tags { display: none; }
+}
 .rep:not([data-sc-act]) { padding-block: var(--sc-section); }
 .rep:not([data-sc-act]) .rep__stage { height: auto; overflow: visible; }
 .rep:not([data-sc-act]) .rep__rail { width: auto; overflow-x: auto; justify-content: safe center; scroll-snap-type: x proximity; padding-bottom: var(--sc-4); }
@@ -616,7 +653,7 @@ body[data-pace="cue"] .desk__mode { color: var(--sc-ink); font-weight: 600; }
 /* ================================================================ MODAL == */
 .modal { position: fixed; inset: 0; z-index: 80; display: grid; place-items: center; padding: var(--sc-4); visibility: hidden; opacity: 0; transition: opacity 240ms var(--sc-ease-out), visibility 0s linear 240ms; }
 .modal.is-open { visibility: visible; opacity: 1; transition: opacity 240ms var(--sc-ease-out); }
-.modal__backdrop { position: absolute; inset: 0; background: rgb(5 4 6 / 0.8); }
+.modal__backdrop { position: absolute; inset: 0; background: rgb(58 46 39 / 0.45); backdrop-filter: blur(6px); }
 .modal__dialog {
   position: relative; display: flex; flex-direction: column;
   width: min(54rem, 100%); max-height: min(88svh, 60rem);

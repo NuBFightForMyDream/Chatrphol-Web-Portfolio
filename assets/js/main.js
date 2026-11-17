@@ -289,7 +289,7 @@
     const intro = str(p.intro);
     const contactLabel = L('contact_me', 'Get in touch');
     const workLabel = state.data.__hasWork ? L('view_work', 'View my work') : '';
-    const act = REDUCED ? '' : ' data-sc-act="pin" data-sc-span="2.6" data-sc-drift="#0d0c0e"';
+    const act = REDUCED ? '' : ' data-sc-act="pin" data-sc-span="2.6" data-sc-drift="#f6eee3"';
 
     return `
 <section class="hero${REDUCED ? ' hero--static' : ''}" id="top" data-scene="top"${act}>
@@ -625,7 +625,7 @@
     const mail = email ? link(email) : '';
     const resume = link(profile.resume);
     const title = str(c.title) || name;
-    const act = REDUCED ? '' : ' data-sc-act="pin" data-sc-span="1.5" data-span-full="1.5" data-span-fast="1.2" data-sc-drift="#221b17"';
+    const act = REDUCED ? '' : ' data-sc-act="pin" data-sc-span="1.5" data-span-full="1.5" data-span-fast="1.2" data-sc-drift="#f3e4d1"';
     return `
 <footer class="call" id="${hasContact ? 'contact' : 'curtain-call'}" data-scene="call"${act}>
   <div class="call__stage" data-sc-stage>
@@ -1246,6 +1246,7 @@
     const mouse = { x: -9999, y: -9999 };
     const accent = () => getComputedStyle(root).getPropertyValue('--accent-2').trim() || '#f5ae72';
     let color = accent();
+    const starColor = getComputedStyle(root).getPropertyValue('--star').trim() || '#fff';
 
     const resize = () => {
       w = innerWidth;
@@ -1283,8 +1284,8 @@
       const streak = Math.abs(v) > 0.7;
       // the constellation forms while nothing moves and breaks the moment the page does
       still = Math.abs(v) < 0.04 ? Math.min(1, still + 0.006) : Math.max(0, still - 0.1);
-      ctx.fillStyle = '#fff';
-      ctx.strokeStyle = '#fff';
+      ctx.fillStyle = starColor;
+      ctx.strokeStyle = starColor;
       for (const s of stars) {
         if (move) {
           s.x += s.vx;
