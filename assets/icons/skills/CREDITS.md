@@ -4,6 +4,7 @@ Brand logos belong to their owners and are used here only to name the tool.
 
 - `claude.svg`: [Simple Icons](https://simpleicons.org) (CC0 1.0)
 - `sql.svg`: drawn for this site (a generic database mark, since SQL has no logo)
+- `fusion360.svg`: Devicon v2.16.0 Fusion "original" logo, simplified to one color with the F cut out so it works with the site's logo tint
 - Every other file: [Devicon](https://devicon.dev) v2.16.0, "plain" variants, renamed, under the MIT License below.
 
 ```
